@@ -1,0 +1,82 @@
+{subtemplate category/header}
+
+<script type="text/javascript" src="static/js/house.js"></script>
+<style id="diy_style" type="text/css"></style>
+
+<div class="wp cl">
+	<div class="mn">
+
+		<div class="stb cl">
+			<div class="stb_h">
+				<div class="y mtn xw1">{lang house_total_info}</div>
+				$searcharea[sorthtml]
+			</div>
+			<div class="stb_c">
+				$searcharea[otherhtml]
+			</div>
+		</div>
+		<div class="drag">
+			<!--[diy=diy5]--><div id="diy5" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="drag">
+			<!--[diy=diy6]--><div id="diy6" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="drag">
+			<!--[diy=diy7]--><div id="diy7" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="drag">
+			<!--[diy=diy8]--><div id="diy8" class="area"></div><!--[/diy]-->
+		</div>
+	</div>
+	<div class="sd">
+		<div class="bm">
+			<div class="bm_h">
+				<h3>{lang house_green_channel}</h3>
+			</div>
+			<div class="bm_c">
+				<ul class="xl xl2 xlq cl">
+					<!--{loop $sortlist $key $sort}-->
+					<li><a href="house.php?mod=post&action=nav&sortid=$key">{lang house_post}$sort[name]</a></li>
+					<!--{/loop}-->
+					<li class="qs"><a href="house.php?mod=broker&amp;action=my&amp;uid=$_G[uid]">{lang house_manage}</a></li>
+					<li class="qa">
+						<!--{if $usergroupid > 1}-->
+							<a href="house.php?mod=broker&action=setting">{lang house_setting}</a>
+						<!--{else}-->
+							<a href="house.php?mod=agent&amp;action=application">{lang house_application}</a>
+						<!--{/if}-->
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="drag">
+			<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="drag">
+			<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="bm">
+			<div class="bm_h">
+				<h3>{lang house_recent_view}</h3>
+			</div>
+			<div class="bm_c">
+				<ul class="xl cl">
+					<!--{if $visitedlist}-->
+					<!--{loop $visitedlist $data}-->
+					<li><a class="xi2" href="house.php?mod=view&tid=$data[tid]">$data[subject]</a></li>
+					<!--{/loop}-->
+					<!--{else}-->
+					<li>{lang house_recent_nothing}</li>
+					<!--{/if}-->
+				</ul>
+			</div>
+		</div>
+		<div class="drag">
+			<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="drag">
+			<!--[diy=diy4]--><div id="diy4" class="area"></div><!--[/diy]-->
+		</div>
+	</div>
+</div>
+<!--{template common/footer}-->

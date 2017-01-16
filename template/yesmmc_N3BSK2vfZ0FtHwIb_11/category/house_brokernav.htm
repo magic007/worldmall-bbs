@@ -1,0 +1,39 @@
+<div class="sd">
+	<div class="bm">
+		<div class="bm_h">
+			<h2>{lang personal_information}</h2>
+		</div>
+		<div class="bm_c b_userinfo">
+			<div class="avatar">
+				<a href="house.php?mod=broker&amp;action=my&amp;uid=$uid">$avatar</a>
+			</div>
+			<div class="uil">
+				<p class="hm">$username</p>
+				<p><!--{if $usergrouplist[$usergroupid]['icon']}--><a href="$modurl?mod=agent&amp;action=store&amp;gid=$usergrouplist[$usergroupid][gid]"><img src="$usergrouplist[$usergroupid][icon]" class="vm"></a><!--{/if}--></p>
+				<dl class="cl">
+					<!--{if $verifyinfo}--><dt>{lang house_verify}</dt><dd>$verifyinfo</dd><!--{/if}-->
+					<!--{if $member[threads]}--><dt>{lang house_housenum}</dt><dd>$member[threads]{lang house_suit}</dd><!--{/if}-->
+					<!--{if $member['district']}--><dt>{lang house_service_area}</dt><dd>$member['district']<!--{if $member['street']}-->&nbsp;&nbsp;$member['street']<!--{/if}--></dd><!--{/if}-->
+					<!--{if $usergrouplist[$usergroupid]['title']}--><dt><!--{if $usergroupid == 1}-->{lang house_usergroup}<!--{else}-->{lang house_agent}<!--{/if}--></dt><dd>$usergrouplist[$usergroupid][title]</dd><!--{/if}-->
+					<!--{if $member['tel']}--><dt>{lang house_phone}</dt><dd>$member['tel']</dd><!--{/if}-->
+				</dl>
+			</div>
+		</div>
+	</div>
+	<!--{if $_G['uid'] == $uid}-->
+	<div class="bm">
+		<div class="bm_h">
+			<h3>{lang house_manage_tools}</h3>
+		</div>
+		<div class="bm_c">
+			<ul class="xl xl2 xlq cl">
+				<!--{loop $sortlist $key $sort}-->
+				<li><a href="house.php?mod=post&action=nav&sortid=$key">{lang house_post}$sort[name]</a></li>
+				<!--{/loop}-->
+				<li class="qs"><a href="house.php?mod=broker&amp;action=my&amp;uid=$_G[uid]">{lang house_manage}</a></li>
+				<li class="qa"><a href="house.php?mod=broker&action=setting">{lang house_setting}</a></li>				
+			</ul>
+		</div>
+	</div>
+	<!--{/if}-->
+</div>

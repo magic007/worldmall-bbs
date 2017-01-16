@@ -1,0 +1,182 @@
+<?php
+if(!defined('IN_DISCUZ')) {
+	exit('Access Denied');
+}
+
+$returns = <<<EOT
+<style type="text/css">
+
+#do_yaya{position:fixed; bottom:100px;z-index:9999999;_position:absolute;_bottom:auto;left:auto;right:10px;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0))); margin: 0 auto;}
+
+#do_yaya .do_none{display:none;}
+#do_yaya .do_block{display:block;}
+#do_yaya .do_barss{text-align:center; width:52px; cursor:pointer;}/* display:none;*/
+
+#do_open {}
+#do_close{}
+
+#do_yaya .do_qipao { width:200px; padding-bottom:12px;  margin-bottom:10px; margin-left:-120px; position:relative;background: url(source/plugin/do_yaya/template/qipaobg.png) no-repeat bottom;}
+#do_yaya .do_qipao .qipao{maring-top:5px; padding:5px; background: #FFF;  border-left:2px solid #0099CC; border-right:2px solid #0099CC;border-top:2px solid #0099CC;}
+#do_yaya .do_qipao .do_news{font-weight:bold; color:#333 ;background:{$do_yayas[do_bgcolor]}  url(source/plugin/do_yaya/template/yaya_logo.gif) no-repeat right 8px; padding:5px 5px 5px 18px; maring-top:5px;  border-left:1px solid #0099CC; border-right:1px solid #0099CC;border-top:1px solid #0099CC;}
+#do_yaya .do_qipao .do_news a{color:#f33 ;font-weight:bold; padding:2px;}
+</style>
+
+<!-- end do_yaya -->
+<script type="text/javascript">
+function do_oc(on) {
+	var open = 'none', close = '';
+	if(on == 1) {
+		open = '';
+		close = 'none';
+	}
+	$('do_open').style.display=open;
+	$('do_close').style.display=close;
+	setcookie('do_topen', on, 86400);
+};
+
+</script>
+
+<div id="do_yaya" >
+
+EOT;
+
+
+if($_G['uid']) 
+{
+$returns .= <<<EOT
+<div id="do_open" {$disopen}>
+<div style="line-height:1px;">{$do_newring}</div>
+EOT;
+
+
+if($do_newpm && $do_yayas['do_radioa']) 
+{
+$returns .= <<<EOT
+
+<div class="do_qipao ">
+<div class="do_news">
+{$do_yayas['do_texta']}
+</div>
+</div>
+
+EOT;
+}
+
+
+
+if($do_newtx && $do_yayas['do_radiob']) 
+{
+$returns .= <<<EOT
+<div class="do_qipao ">
+<div class="do_news">
+{$do_yayas['do_textb']}
+</div>
+</div>
+EOT;
+}
+
+
+if($do_newrw && $do_yayas['do_radioc']) 
+{
+$returns .= <<<EOT
+
+<div class="do_qipao ">
+<div class="do_news">
+{$do_yayas['do_textc']}
+</div>
+</div>
+EOT;
+}
+
+
+if(!$do_qqyes && $do_yayas['do_radiod']) 
+{
+$returns .= <<<EOT
+<div class="do_qipao ">
+<div class="do_news">
+{$do_yayas['do_textd']}
+</div>
+</div>
+EOT;
+}
+
+
+if(!$do_newren  && $do_yayas['do_radioe']) 
+{
+$returns .= <<<EOT
+<div class="do_qipao ">
+<div class="do_news">
+{$do_yayas['do_texte']}
+</div>
+</div>
+EOT;
+}
+
+	
+	
+	
+if(!$do_avatar  && $do_yayas['do_radiof']) 
+{
+$returns .= <<<EOT
+<div class="do_qipao ">
+<div class="do_news">
+{$do_yayas['do_textf']}
+</div>
+</div>
+EOT;
+}
+
+	
+if(!$do_emall  && $do_yayas['do_radiog']) 
+{
+$returns .= <<<EOT
+<div class="do_qipao ">
+<div class="do_news">
+{$do_yayas['do_textg']}
+</div>
+</div>
+EOT;
+}
+
+
+
+
+$returns .= <<<EOT
+<div class="do_barss" onclick="window.scrollTo('0','0'); return false;" title="向上到顶部"><img src="source/plugin/do_yaya/template/top.png"></div>
+<div  class="avt"  title="双击缩略"  ondblclick="do_oc(-1);"><img src="{$_G['setting'][ucenterurl]}/avatar.php?uid={$_G['uid']}&size=small" /></div>
+<div class="do_barss" onclick="window.scrollTo(0,document.body.scrollHeight); return false;"  title="向下到底部"><img src="source/plugin/do_yaya/template/down.png"></div>
+</div><!-- end do_open -->
+<div id="do_close" {$disclose}>
+<div  class="avt"   title="论坛小助手，双击展开" ondblclick="do_oc(1);"><img src="source/plugin/do_yaya/template/yaya.gif" /></div>
+<div class="do_barss" ></div>
+</div>
+</div>
+EOT;
+}
+ else
+ 
+{
+
+$returns .= <<<EOT
+<div id="do_open" {$disopen}>
+<div style="line-height:1px;">{$do_moringxxx}</div>
+<div class="do_qipao ">
+<div class="do_news">
+
+{$do_yayas['do_login']}<a href="/member.php?mod={$_G['setting'][regname]}">【{$_G['setting']['reglinkname']}】</a><br>
+ 
+</div>
+</div>
+<div  class="avt" title="双击缩略" ondblclick="do_oc(-1);"><img src="source/plugin/do_yaya/template/yaya.png" /></div>
+
+</div>
+<!-- end do_open -->
+<div id="do_close" {$disclose}>
+<div class="avt"   title="论坛小助手，双击展开" ondblclick="do_oc(1);"><img src="source/plugin/do_yaya/template/yaya.gif" /></div>
+</div>
+</div>
+EOT;
+
+ }
+
+?>

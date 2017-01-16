@@ -1,0 +1,644 @@
+<!--{if empty($job) }-->
+<table class="tb tb2 " id="tips">
+<tbody>
+<tr><th class="partition">{lang xunku_spider_2012:tishi}</th></tr>
+<tr>
+	<td class="tipsblock" s="1">
+	<ul id="tipslis">
+		<li>{lang xunku_spider_2012:snow_tishi}</li>
+		<li>{lang xunku_spider_2012:snow_tishi_2}</li>
+	</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='spider_now'>
+<input type='hidden' name='step' value='2'>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:snow_baseconfig}<span style="font-size:12px;padding-left:20px">
+		<a href="$basename&pmod=spider_now&job=joblist">{lang xunku_spider_2012:snow_joblist}</a>
+	  </span></th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_source}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$select_site}
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_source_des}</td>
+</tr>
+
+<!--{if $xk_memberinfo['level']==2 }-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_module}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="{$ifcheck_Y}">
+				<input class="radio" type="radio" name="ifcheck" value="0" {$ifcheck_Y}> {lang xunku_spider_2012:snow_module_1}
+			</li>
+			<li class="{$ifcheck_N}">
+				<input class="radio" type="radio" name="ifcheck" value="1" {$ifcheck_N}> {lang xunku_spider_2012:snow_module_2}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_module_des}</td>
+</tr>
+<!--{/if}-->
+
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_tongji}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul class="nofloat" onmouseover="altStyle(this);">
+			<li class="{$today_count_1}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="today_count[]" value="1" {$today_count_1}> {lang xunku_spider_2012:zhuti}
+			</li>
+			<li style="float: left; width: 18%" class="{$today_count_2}">
+				<input class="checkbox" type="checkbox" name="today_count[]" value="2" {$today_count_2}> {lang xunku_spider_2012:huifu}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_tongji_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_userlocal}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="{$localuser_Y}">
+				<input class="radio" type="radio" name="localuser" value="1" {$localuser_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li class="{$localuser_N}">
+				<input class="radio" type="radio" name="localuser" value="0" {$localuser_N}> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_userlocal_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_attlocal}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="{$local_att_Y}">
+				<input class="radio" type="radio" name="local_att" value="1" {$local_att_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li class="{$local_att_N}">
+				<input class="radio" type="radio" name="local_att" value="0" {$local_att_N}> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_attlocal_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_monitime}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="{$moniposttime_Y}">
+				<input class="radio" type="radio" name="moniposttime" value="1" {$moniposttime_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li class="{$moniposttime_N}">
+				<input class="radio" type="radio" name="moniposttime" value="0" {$moniposttime_N}> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_monitime_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_posttime}:
+	</td>
+</tr>
+<script type="text/javascript" src="{$_G['setting']['jspath']}calendar.js?{VERHASH}"></script>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input type="text" class="txt" name="tpc_time" value="{$save_config[tpc_time]}" style="width: 200px; margin-right: 5px;" onclick="showcalendar(event, this, 1)">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_posttime_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_post_jiange}:
+	</td>
+</tr>
+<script type="text/javascript" src="{$_G['setting']['jspath']}calendar.js?{VERHASH}"></script>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="post_time_min" value="{$save_config[post_time_min]}" style="width: 108px; margin-right: 5px;" type="text" class="txt">
+		~
+		<input name="post_time_max" value="{$save_config[post_time_max]}" style="width: 108px; margin-left: 5px;" type="text" class="txt">
+		({lang xunku_spider_2012:fen})
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_post_jiange_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_view_num}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="view_num_min" value="{$save_config[view_num_min]}" style="width: 108px; margin-right: 5px;" type="text" class="txt">
+		~
+		<input name="view_num_max" value="{$save_config[view_num_max]}" style="width: 108px; margin-left: 5px;" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_view_num_des}</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:snow_huifumoni}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_post_moni}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="{$replay_Y}">
+				<input class="radio" type="radio" name="replay" value="1" {$replay_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li class="{$replay_N}">
+				<input class="radio" type="radio" name="replay" value="0" {$replay_N}> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_post_moni_des}</td>
+</tr>
+<!--{if $xk_memberinfo['level']==2 }-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_post_try}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="{$replay_Y}">
+				<input class="radio" type="radio" name="replay_try" value="1" {$replay_try_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li class="{$replay_N}">
+				<input class="radio" type="radio" name="replay_try" value="0" {$replay_try_N}> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_post_try_des}</td>
+</tr>
+<!--{/if}-->
+
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_own_post}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="{$replay_own_Y}">
+				<input class="radio" type="radio" name="replay_own" value="1" {$replay_own_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li class="{$replay_own_N}">
+				<input class="radio" type="radio" name="replay_own" value="0" {$replay_own_N}> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_own_post_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_majia}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul class="nofloat" onmouseover="altStyle(this);">
+			<li class="{$majia_1}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="majia[]" value="1" {$majia_1}> {lang xunku_spider_2012:zhuti}:
+			</li>
+			<li class="{$majia_2}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="majia[]" value="2" {$majia_2}> {lang xunku_spider_2012:huifu}
+			</li>
+			<li class="{$majia_3}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="majia[]" value="3" {$majia_3}> {lang xunku_spider_2012:zidingyihuifu}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_majia_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_post_allnum}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="replay_all" value="{$save_config[replay_all]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_post_allnum_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_perpage_num}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="replay_perpage" value="{$save_config[replay_perpage]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_perpage_num_des}</td>
+</tr>
+</tbody></table>
+<!--{if $xk_memberinfo['level']==2 }-->
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:s_filter_name}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:filter_by_username_cai}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="filter_username_cai" value="{$save_config[filter_username_cai]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:filter_by_username_cai_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:filter_by_username}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="filter_username" value="{$save_config[filter_username]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:filter_by_username_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:filter_by_keywords_cai}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="filter_keywords_cai" value="{$save_config[filter_keywords_cai]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:filter_by_keywords_cai_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:filter_by_keywords}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="filter_keywords" value="{$save_config[filter_keywords]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:filter_by_keywords_des}</td>
+</tr>
+</tbody></table>
+<!--{/if}-->
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:snow_wyc}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_replace}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="{$wyc_replace_Y}">
+				<input class="radio" type="radio" name="wyc_replace" value="1" {$wyc_replace_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li class="{$wyc_replace_N}">
+				<input class="radio" type="radio" name="wyc_replace" value="0" {$wyc_replace_N}> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_replace_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_hunxiao}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);" style="width: 830px">
+			<li class="{$wyc_1}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="wyc[]" value="1" {$wyc_1}> {lang xunku_spider_2012:snow_hunxiao_1}
+			</li>
+			<li class="{$wyc_2}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="wyc[]" value="2" {$wyc_2}> {lang xunku_spider_2012:snow_hunxiao_2}
+			</li>
+			<li class="{$wyc_3}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="wyc[]" value="3" {$wyc_3}> {lang xunku_spider_2012:snow_hunxiao_3}
+			</li>
+			<li class="{$wyc_4}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="wyc[]" value="4" {$wyc_4}> {lang xunku_spider_2012:snow_hunxiao_4}
+			</li>
+			<li class="{$wyc_5}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="wyc[]" value="5" {$wyc_5}> {lang xunku_spider_2012:snow_hunxiao_5}
+			</li>
+			<li class="{$wyc_6}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="wyc[]" value="6" {$wyc_6}> {lang xunku_spider_2012:snow_hunxiao_6}
+			</li>
+			<li class="{$wyc_7}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="wyc[]" value="7" {$wyc_7}> {lang xunku_spider_2012:snow_hunxiao_7}
+			</li>
+			<li class="{$wyc_8}" style="float: left; width: 18%">
+				<input class="checkbox" type="checkbox" name="wyc[]" value="8" {$wyc_8}> {lang xunku_spider_2012:snow_hunxiao_8}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_hunxiao_des}</td>
+</tr>
+</tbody></table>
+
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:snow_mubiao}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:cmode_select_name}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<select name="cmode" onchange="changemode(this.value)">
+			<option value="1">{lang xunku_spider_2012:cmode_select_forum}</option>
+			<option value="2">{lang xunku_spider_2012:cmode_select_cms}</option>
+			<!--<option value="3">群组模式</option>-->
+		</select>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:cmode_select_des}</td>
+</tr>
+</tbody></table>
+
+<table class="tb tb2 nobdb" id='forum'>
+<tbody>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_fid}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$forum_str}
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_fid_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_fenlei}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<select name="to_threadcate" id='to_threadcate'>
+			<option value='0'>{lang xunku_spider_2012:snow_fenlei_1}</option>
+		</select>
+		<div style='display:none'>
+<script>
+var typeinfo = {$type_info_json};
+</script>
+		</div>
+	</td>
+<script>
+function delOption(oSel){
+	if (oSel.selectedIndex>=0) {
+		oSel.remove(oSel.selectedIndex);
+		delOption(oSel);
+	}
+}
+function changetypes(fid) {
+	var fidtype = typeinfo[fid];
+	var cateSelect = document.getElementById('to_threadcate');
+	delOption(cateSelect);
+	for(var key in fidtype) {
+		cateSelect.add(new Option(fidtype[key], key));
+	}
+}
+</script>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_fenlei_1}</td>
+</tr>
+
+<!--{if $xk_memberinfo['if_deny']>0 }-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		<span style="font-weight:bold;color:red;">{lang xunku_spider_2012:outdate}
+		<a href="http://www.ixunku.com/buy.php?pkey={$xk_publickey}" target="_blank"><img src="http://www.ixunku.com/images/uprun.gif"></a></span>
+	</td>
+</tr>
+<!--{else}-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_range}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="range_single" id="range_single" cols="50" class="tarea" style="height: 75px; "></textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_range_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_multi_range}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+<!--{if $xk_memberinfo['level']>0 }-->
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="range_multi" id="range_multi" cols="50" class="tarea" style="height: 75px; "></textarea>
+<!--{else}-->
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="range_multi" id="range_multi" cols="50" class="tarea" style="height: 75px; " disabled></textarea>
+<!--{/if}-->
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_multi_range_des}</td>
+</tr>
+<!--{/if}-->
+</tbody></table>
+
+
+<!--cms-->
+<table class="tb tb2 nobdb" id='cms' style="display:none">
+<tbody>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:cmode_select_cms_type}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$cms_str}
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:cmode_select_cms_type_des}</td>
+</tr>
+<!--{if $xk_memberinfo['if_deny']>0 }-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		<span style="font-weight:bold;color:red;">{lang xunku_spider_2012:outdate}
+		<a href="http://www.ixunku.com/buy.php?pkey={$xk_publickey}" target="_blank"><img src="http://www.ixunku.com/images/uprun.gif"></a></span>
+	</td>
+</tr>
+<!--{else}-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_range}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="range_single_cms" id="range_single" cols="50" class="tarea" style="height: 75px; "></textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_range_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_multi_range}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+<!--{if $xk_memberinfo['level']>0 }-->
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="range_multi_cms" id="range_multi" cols="50" class="tarea" style="height: 75px; "></textarea>
+<!--{else}-->
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="range_multi_cms" id="range_multi" cols="50" class="tarea" style="height: 75px; " disabled></textarea>
+<!--{/if}-->
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_multi_range_des}</td>
+</tr>
+<!--{/if}-->
+</tbody></table>
+
+<script>
+function changemode(mode){
+	if(mode == 1) {
+		document.getElementById('forum').style.display = '';
+		document.getElementById('cms').style.display = 'none';
+		document.getElementById('cmode_select').value = '1';
+	}else if(mode == 2) {
+		document.getElementById('forum').style.display = 'none';
+		document.getElementById('cms').style.display = '';
+		document.getElementById('cmode_select').value = '2';
+	}
+}
+</script>
+
+
+
+</div>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+<input name='cmode_select' type="hidden" id='cmode_select' value = '1'>
+</form>
+<!--{elseif $job == 'joblist'}-->
+<table class="tb tb2 " id="tips">
+<tbody>
+<tr><th class="partition">{lang xunku_spider_2012:tishi}</th></tr>
+<tr>
+	<td class="tipsblock" s="1">
+	<ul id="tipslis">
+		<li>{lang xunku_spider_2012:snow_joblist_tip_1}</li>
+		<li>{lang xunku_spider_2012:snow_joblist_tip_2}</li>
+	</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr>
+	<th colspan="15" class="partition">{lang xunku_spider_2012:snow_joblist_list}<span style="font-size:12px;padding-left:20px">
+		<a href="$basename&pmod=spider_now">{lang xunku_spider_2012:snow_joblist_jump}</a></th>
+</tr>
+<tr>
+	<th>{lang xunku_spider_2012:snow_joblist_bianhao}</th>
+	<th>{lang xunku_spider_2012:snow_joblist_type}</th>
+	<th>{lang xunku_spider_2012:snow_joblist_url}</th>
+	<th>{lang xunku_spider_2012:snow_joblist_jindu}</th>
+	<th>{lang xunku_spider_2012:snow_joblist_opt}</th>
+</tr>
+<style>
+.vote .vote_numline {
+	width: 300px;
+	vertical-align: middle;
+}
+.perCent, .perValue, .perValue span {
+background: url('{$xk_config[resource_url]}img/vote.png') repeat-x;
+}
+.perCent {
+	background-color: #F0F0F0;
+	height: 12px;
+	overflow: hidden;
+	color: #587F02;
+	position: relative;
+}
+.perbgA {
+	background-position: right -48px;
+}
+.perValue {
+	float: left;
+	height: 100%;
+	background-color: #006AD7;
+	overflow: hidden;
+	background-position: right -24px;
+}
+</style>
+<!--{if $joblist }-->
+<!--{loop $joblist $key $value}-->
+		<tr class="hover">
+            <td>{$value[id]}</td><td>
+	<!--{if $value['type'] == 0 }-->
+			<span>{lang xunku_spider_2012:snow_joblist_single}</span>
+	<!--{else}-->
+			<span style="color:blue">{lang xunku_spider_2012:snow_joblist_muliti}</span>
+	<!--{/if}-->
+			</td>
+            <td>{$value[url]}</td>
+			<td width="300px">
+				<div class="perCent vote_numline">
+					<div class="perValue perbgA" style="width:{$value[process]}%;">
+						<span></span>
+					</div>
+				</div>
+				{$value[process]}% <span style="font-weight:bold">{$value[showmsg]}</span>
+			</td>
+			<td><a href="$basename&pmod=spider_now&job=stopjob&jobid=$value[id]">{lang xunku_spider_2012:snow_joblist_stop}</a></td>
+          </tr>
+<!--{/loop}-->
+<!--{/if}-->
+</tbody>
+</table>
+<script>setTimeout("location.href='$basename&pmod=spider_now&job=joblist&tid={$tid}&nowpage={$nowpage}&allpage={$allpage}&jobid={$jobid}'",{$timeout})</script>
+<!--{/if}-->

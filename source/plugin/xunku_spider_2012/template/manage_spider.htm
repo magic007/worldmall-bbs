@@ -1,0 +1,564 @@
+<table class="tb tb2 " id="tips">
+<tbody>
+<tr><th class="partition">{lang xunku_spider_2012:tishi}</th></tr>
+<tr>
+	<td class="tipsblock" s="1">
+	<ul id="tipslis">
+		<li>{lang xunku_spider_2012:msource_tishi}</li>
+	</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<!--{if empty($job) }-->
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='manage_spider'>
+<input type='hidden' name='step' value='2'>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr>
+<th colspan="15" class="partition">{lang xunku_spider_2012:msource_list}
+	<span style="font-size:10px;padding-left:25px"><a href="{$basename}&pmod=manage_spider&job=add_source">{lang xunku_spider_2012:msource_create}</a>
+	<span style="font-size:10px;padding-left:25px"><a href="{$basename}&pmod=manage_spider&job=update_auto">{lang xunku_spider_2012:msource_auto}</a>
+	</span>
+</th>
+</tr>
+<!--{if $source_info }-->
+<!--{loop $source_info $key $val}-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{$val[title]}:
+	</td>
+</tr>
+<tr class="noborder" >
+	<td class="vtop rowform" style="width: 100%">
+		<ul class="nofloat" onmouseover="altStyle(this);">
+<!--{loop $val['list'] $k $v}-->
+<!--{if in_array($k,$baseconfig['global_source']) }-->
+			<li class="checked" style="float: left; width: 25%;">
+<!--{if $v['canuse'] > 0 }-->
+				<span style="width:50px;display:block;float:left"><input class="checkbox" type="checkbox" name="source_id[]" value="{$k}" checked> {$v[title]}</span>
+				<span style="width:180px;display:inline;float:right">
+				<a href="{$basename}&pmod=manage_spider&job=refresh_source&sname={$v[unique_key]}" style="float:right;margin-right:10px">[{lang xunku_spider_2012:msource_update}]</a>
+				<a href="{$v[url]}" target="_blank" style="float:right;margin-right:10px">{lang xunku_spider_2012:msource_see}</a></span>
+<!--{if $v['canedite'] > 0 }-->
+				<span style="display:inline;float:left;margin-left:80px"><a href="{$basename}&pmod=manage_spider&job=edite_source&sid={$k}">{lang xunku_spider_2012:msource_edite}</a>
+<!--{/if}-->
+<!--{else}-->
+				<span style="width:50px;display:block;float:left"><input class="checkbox" type="checkbox" name="source_id[]" value="{$k}" checked disabled> {$v[title]}</span>
+				<span style="width:80px;display:inline;float:right"><a href="{$v[url]}" target="_blank" style="float:right;margin-right:10px">{lang xunku_spider_2012:msource_see}</a></span>
+<!--{/if}-->
+			</li>
+<!--{else}-->
+			<li style="float: left; width: 25%">
+<!--{if $v['canuse'] > 0 }-->
+				<span style="width:50px;display:block;float:left"><input class="checkbox" type="checkbox" name="source_id[]" value="{$k}"> {$v[title]}</span>
+				<span style="width:80px;display:inline;float:right"><a href="{$v[url]}" target="_blank" style="float:right;margin-right:10px">{lang xunku_spider_2012:msource_see}</a></span>
+<!--{if $v['canedite'] > 0 }-->
+				<span style="display:inline;float:left;margin-left:80px"><a href="{$basename}&pmod=manage_spider&job=edite_source&sid={$k}">{lang xunku_spider_2012:msource_edite}</a>
+<!--{/if}-->
+<!--{else}-->
+				<span style="width:50px;display:block;float:left"><input class="checkbox" type="checkbox" name="source_id[]" value="{$k}" disabled> {$v[title]}</span>
+				<span style="width:80px;display:inline;float:right"><a href="{$v[url]}" target="_blank" style="float:right;margin-right:10px">{lang xunku_spider_2012:msource_see}</a></span>
+<!--{/if}-->
+			</li>
+<!--{/if}-->
+<!--{/loop}-->
+		</ul>
+	</td>
+</tr>
+<!--{/loop}-->
+<!--{/if}-->
+</tbody></table>
+</div>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+</form>
+<!--{elseif $job == 'add_source' }-->
+<script>
+function showSource(num) {
+	if (num == '1')
+	{
+		document.getElementById('dz_code').style.display = 'none';
+		document.getElementById('other_code').style.display = 'none';
+		document.getElementById('pw_code').style.display = '';
+	} else if(num == '2') {
+		document.getElementById('pw_code').style.display = 'none';
+		document.getElementById('other_code').style.display = 'none';
+		document.getElementById('dz_code').style.display = '';
+	} else if (num == '3')
+	{
+		document.getElementById('dz_code').style.display = 'none';
+		document.getElementById('pw_code').style.display = 'none';
+		document.getElementById('other_code').style.display = '';
+	}
+}
+</script>
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='manage_spider'>
+<input type='hidden' name='job' value='add_source'>
+<input type='hidden' name='step' value='2'>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr>
+<th colspan="15" class="partition">{lang xunku_spider_2012:msource_create}
+	<span style="font-size:10px;padding-left:25px"><a href="{$basename}&pmod=manage_spider">{lang xunku_spider_2012:msource_return}</a></span>
+</th>
+</tr>
+<tr>
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_type}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<ul onmouseover="altStyle(this);">
+		<li class="checked">
+			<input class="radio" type="radio" name="source_type" value="1" checked="" onclick="showSource(1);"> {lang xunku_spider_2012:msource_pw}
+		</li>
+		<li class="">
+			<input class="radio" type="radio" name="source_type" value="2" onclick="showSource(2);"> {lang xunku_spider_2012:msource_dz}
+		</li>
+		<li class="">
+			<input class="radio" type="radio" name="source_type" value="3" onclick="showSource(3);"> {lang xunku_spider_2012:msource_other}
+		</li>
+	</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_type_des}</td>
+</tr>
+<tr>
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_fenlei}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<select name="source_class">
+<!--{loop $source_info $key $val}-->
+			<option value="{$key}" selected="">{$val[title]}</option>
+<!--{/loop}-->
+		</select>
+	</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_fenlei_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_name}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<input name="source_title" value="" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_name_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_url}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<input name="source_url" value="" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_url_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_unique}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<input name="source_key" value="" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_unique_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_charset}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<ul onmouseover="altStyle(this);">
+			<li class="checked">
+			<input class="radio" type="radio" name="source_charset" value="1" checked=""> gbk
+			</li>
+			<li>
+			<input class="radio" type="radio" name="source_charset" value="2" > utf8
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_charset_des}</td>
+</tr>
+
+</tbody></table>
+
+<table class="tb tb2 nobdb" id="pw_code">
+<tbody>
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_config}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="pwcode[config]" id="pwcode[config]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[pw][config]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_config_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_thread}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="pwcode[thread]" id="pwcode[thread]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[pw][thread]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_thread_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_tpc}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="pwcode[tpc]" id="pwcode[tpc]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[pw][tpc]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_tpc_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_post}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="pwcode[post]" id="pwcode[post]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[pw][post]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_post_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_page}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="pwcode[createurl]" id="pwcode[config]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[pw][createurl]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_page_des}</td>
+</tr>
+</tbody></table>
+
+
+
+<table class="tb tb2 nobdb" id="dz_code" style="display:none;">
+<tbody>
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_config}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="dzcode[config]" id="dzcode[config]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[dz][config]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_config_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_thread}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="dzcode[thread]" id="dzcode[thread]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[dz][thread]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_thread_des}</td>
+</tr>
+
+<tr class="noborder">
+{lang xunku_spider_2012:msource_tpc}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="dzcode[tpc]" id="dzcode[tpc]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[dz][tpc]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_tpc_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_post}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="dzcode[post]" id="dzcode[post]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[dz][post]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_post_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_page}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="dzcode[createurl]" id="dzcode[config]" cols="50" class="tarea" style="height: 75px; ">{$source_demo_code[dz][createurl]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_page_des}</td>
+</tr>
+</tbody></table>
+
+
+
+
+<table class="tb tb2 nobdb" id="other_code" style="display:none;">
+<tbody>
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_config}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="othercode[config]" id="othercode[config]" cols="50" class="tarea" style="height: 75px; "></textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_config_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_thread}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="othercode[thread]" id="othercode[thread]" cols="50" class="tarea" style="height: 75px; "></textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_thread_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_tpc}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="othercode[tpc]" id="othercode[tpc]" cols="50" class="tarea" style="height: 75px; "></textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_tpc_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_post}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="othercode[post]" id="othercode[post]" cols="50" class="tarea" style="height: 75px; "></textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_post_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_page}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="othercode[createurl]" id="othercode[config]" cols="50" class="tarea" style="height: 75px; "></textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_page_des}</td>
+</tr>
+</tbody></table>
+</div>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+</form>
+<!--{elseif $job == 'edite_source' }-->
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='manage_spider'>
+<input type='hidden' name='job' value='edite_source'>
+<input type="hidden" name="sid" value="$sid" />
+<input type='hidden' name='step' value='2'>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr>
+<th colspan="15" class="partition">{lang xunku_spider_2012:msource_edite_all}
+	<span style="font-size:10px;padding-left:25px"><a href="{$basename}&pmod=manage_spider">{lang xunku_spider_2012:msource_return}</a></span>
+</th>
+</tr>
+<tr>
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_fenlei}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<select name="source_class">
+<!--{loop $source_info $key $val}-->
+<!--{if ($key == $source_detail['typeid']) }-->
+			<option value="{$key}" selected="">{$val[title]}</option>
+<!--{else}-->
+			<option value="{$key}">{$val[title]}</option>
+<!--{/if}-->
+			
+<!--{/loop}-->
+		</select>
+	</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_fenlei_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_name}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<input name="source_title" value="{$source_detail[title]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_name_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_url}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<input name="source_url" value="{$source_code[url]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_url_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_unique}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<input name="source_key" value="{$source_detail[unique_key]}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_unique_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_charset}:
+</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform" style="width:50%">
+		<ul onmouseover="altStyle(this);">
+			<li class="checked">
+			<input class="radio" type="radio" name="source_charset" value="1" checked=""> gbk
+			</li>
+			<li>
+			<input class="radio" type="radio" name="source_charset" value="2" > utf8
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_charset_des}</td>
+</tr>
+</tbody></table>
+
+<table class="tb tb2 nobdb" id="pw_code">
+<tbody>
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_config}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="scode[config]" id="scode[config]" cols="50" class="tarea" style="height: 75px; ">{$source_code[config]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_config_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_thread}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="scode[thread]" id="scode[thread]" cols="50" class="tarea" style="height: 75px; ">{$source_code[thread]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_thread_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_tpc}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="scode[tpc]" id="scode[tpc]" cols="50" class="tarea" style="height: 75px; ">{$source_code[tpc]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_tpc_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_post}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="scode[post]" id="scode[post]" cols="50" class="tarea" style="height: 75px; ">{$source_code[post]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_post_des}</td>
+</tr>
+
+<tr class="noborder">
+<td colspan="2" class="td27" s="1">
+{lang xunku_spider_2012:msource_page}:
+</td>
+</tr>
+<tr class="noborder">
+<td class="vtop rowform">
+<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="scode[createurl]" id="scode[config]" cols="50" class="tarea" style="height: 75px; ">{$source_code[createurl]}</textarea>
+</td>
+<td class="vtop tips2" s="1">{lang xunku_spider_2012:msource_page_des}</td>
+</tr>
+</tbody></table>
+
+
+</div>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+</form>
+<!--{/if}-->

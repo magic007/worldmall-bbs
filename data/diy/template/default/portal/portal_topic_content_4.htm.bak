@@ -1,0 +1,122 @@
+<!--{subtemplate common/header}-->
+<div class="bm cl" style="display:none;"></div>
+<link href="template/default/portal/css/common.css" rel="stylesheet" type="text/css">
+<link href="template/default/portal/css/header.css" rel="stylesheet" type="text/css">
+<link id="style_css" rel="stylesheet" type="text/css" href="static/topic/t1/style.css">
+<style id="diy_style" type="text/css"></style>
+<div id="widgets">
+</div>
+<div id="shortcut">
+  <div class="top-header">
+      <div class="top-left l">尊敬的皮具商您好!查看批发价请 
+        <span>
+        <a href="http://www.worldmall.cn/index.php?app=member" target="_blank" class="cred">[登录]</a>
+        </span>
+		<a href="http://www.worldmall.cn/index.php?app=member" target="_blank" class="cred">[免费注册]</a><a title="通过QQ帐号登录世界窗" href="http://www.worldmall.cn/index.php?app=member&act=login&qq=true"><img src="template/default/portal/images/qq.png" alt="QQ">QQ登录</a><a title="通过新浪微博帐号登录世界窗" href="http://www.worldmall.cn/index.php?app=member&act=login&sina=true"><img src="template/default/portal/images/sina.png" alt="新浪">新浪登录</a>
+		 
+        
+        <!--您好，欢迎来到世界窗！查看批发价请<a href="#" class="cred">[请登录]</a><a href="#" class="cred">[免费注册]</a>--> 
+      </div>
+      <ul class="top-right r" style="height:30px;overflow:hidden;">
+	  	<li><a href="http://www.worldmall.cn/index.php?app=member&act=go_buyer">我是买家</a></li>
+		<li>
+                          <a href="http://www.worldmall.cn/index.php?app=apply" title="申请开店">我要开店</a>
+        </li>
+        <a href="http://www.worldmall.cn/app=member&act=go_seller">
+            </a><li><a href="http://www.worldmall.cn/app=member&act=go_seller"></a><a href="http://www.worldmall.cn/index.php?app=article&code=help">帮助中心</a></li>
+         
+        <li class="bgnone">
+        <a href="javascript:;" onclick="addtofavorite();">收藏本站</a>
+       </li>
+        <li class="bgnone"><a href="javascript:;"><strong>世界窗批发热线：020-86378968</strong></a></li>
+      </ul>
+  </div>
+  <div class="main header">
+    <div class="l"><a href="http://www.worldmall.cn"><img src="template/default/portal/images/logo.png" width="293" height="52" alt="广州包包批发,皮具批发,首家专业皮具厂商在线直销平台"></a> </div>
+    <div class="nav-header">
+      <ul>
+        <li><a href="http://www.worldmall.cn" class="current">首页</a></li>
+                <li><a class="hover" href="http://www.worldmall.cn/index.php?app=search&pos=location&goods_grade=0">所有款式</a></li>
+                <li><a class="hover" href="http://www.worldmall.cn/index.php?app=search&act=products&item=new">新品上架</a></li>
+                <li><a class="hover" href="http://www.worldmall.cn/index.php?app=brand">品牌区</a></li>
+                <li><a class="hover" href="http://bbs.worldmall.cn/" target="_blank">同窗社区</a></li>
+                <li class="header_bg"><a href="javascript:;">世界窗</a></li>
+      </ul>
+    </div>
+	<div class="r" style="margin:32px -20px 0 0;"><wb:follow-button uid="2095506602" type="red_2" width="136" height="24" ></wb:follow-button></div>
+    <div class="search-header">
+      <form action="http://www.worldmall.cn/index.php" method="get">
+        <div class="search_type" style="width:70px;">
+		<ul class="pitch_up">
+		<li>商品<span>三角形</span></li>
+		</ul>
+		<ul class="toselect" style="display:none;width:68px;">
+		<li class="curr" style="display: none; "><a val="index">商品</a></li>
+		<li><a val="brand">品牌</a></li>
+		</ul>
+        <input type="hidden" id="act" name="act" value="index">
+		</div>
+        <input name="keyword" type="text" value="请输入关键词">
+        <!--<input id="act" name="act" value="groupbuy" type="hidden">
+                <input id="act" name="act" value="store" type="hidden">-->
+        <input type="hidden" id="app" name="app" value="search">
+        <input type="hidden" id="order" name="order" value="sales desc">
+        <button>搜索</button>
+        <div class="hotwords">热门搜索： 
+           
+          <a href="http://www.worldmall.cn/index.php?app=search&keyword=%E5%AE%BE%E5%88%A9">宾利</a>| 
+           
+          <a href="http://www.worldmall.cn/index.php?app=search&keyword=%E6%97%B6%E5%B0%9A">时尚</a>| 
+           
+          <a href="http://www.worldmall.cn/index.php?app=search&keyword=%E7%9C%9F%E7%9A%AE">真皮</a> 
+           
+        </div>
+        <dl class="user">
+          <dt><a href="http://www.worldmall.cn/index.php?app=member">用户中心</a></dt>
+          <dd style="display: none; ">
+            <div class="prompt"><strong>用户名</strong><a href="http://www.worldmall.cn/#">世界窗首页</a></div>
+            <ul>
+											<li><a href="http://www.worldmall.cn/index.php?app=my_question">咨询回复</a></li>
+				<li><a href="http://www.worldmall.cn/index.php?app=my_favorite">我收藏的商品</a></li>
+				<li><a href="http://www.worldmall.cn/index.php?app=buyer_order&type=pending">未付款的订单</a></li>
+				<li><a href="http://www.worldmall.cn/index.php?app=buyer_order&type=finished">历史订单</a></li>
+				<li><a href="http://www.worldmall.cn/index.php?app=my_address">我的地址</a></li>
+				
+				<!--<li><a href="javascript:;">我的积分（）</a></li> -->
+				
+				<li><a href="http://www.worldmall.cn/index.php?app=recharge">我的账户</a></li>
+				<li><a href="http://www.worldmall.cn/index.php?app=my_comment">待评价的商品</a></li>
+				            </ul>
+          </dd>
+        </dl>
+        <div class="mycart">
+          <dl>
+            <dt><a href="http://www.worldmall.cn/index.php?app=cart">去购物车结算</a></dt>            
+            <dd style="display: none; ">
+            <div class="no-goods">购物车中还没有商品，赶紧选购吧!</div>
+			</dd>
+          </dl>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="wp">
+<!--[diy=diypage]--><div id="diypage" class="area"><div id="frame8Uk13d" class="frame move-span cl frame-1"><div id="frame8Uk13d_left" class="column frame-1-c"><div id="frame8Uk13d_left_temp" class="move-span temp"></div><!--{block/57}--><!--{block/58}--></div></div></div><!--[/diy]-->
+<!--{if $topic['allowcomment']==1}-->
+	{eval
+		$data = &$topic;
+		$common_url = "portal.php?mod=comment&id=$topicid&idtype=topicid";
+		$form_url = "portal.php?mod=portalcp&ac=comment";
+		$commentlist = portaltopicgetcomment($topicid);	}
+	<!--{template portal/portal_comment}-->
+<!--{/if}-->
+</div>
+
+<div id="footer">
+	<p>
+                <a href="http://www.worldmall.cn/index.php?act=show_my&type=business">关于我们</a>|                <a href="http://www.worldmall.cn/index.php?act=show_my&type=contact">联系我们</a>|                <a href="http://www.worldmall.cn/index.php?app=article&act=view&article_id=39" class="cred">商家入驻</a>|                <a href="http://www.worldmall.cn/index.php?act=show_my&type=legal">法律声明</a>            </p>
+	<p><a href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备10236400号</a> Copyright © 2010-2015 WorldMall.cn 世界窗版权所有 <a title="51.la 专业、免费、强健的访问统计" target="_blank" href="http://www.51.la/?4382478">网站统计</a></p>
+	<p><a href="http://net.china.cn/" target="_blank"><img src="template/default/portal/images/bl00.gif"></a><a href="http://www.gdnet110.gov.cn/" target="_blank"><img src="template/default/portal/images/108_40_OaNIwt.jpg"></a></p>
+</div>
+<!--{subtemplate common/footer}-->

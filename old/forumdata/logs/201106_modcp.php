@@ -1,0 +1,14 @@
+<?PHP exit;?>	1308631699	ekinse	1	121.32.155.193	login	posts	0	GET={action=threads; op=posts; do=search; searchsubmit=1; users=vjn; }; POST={};
+<?PHP exit;?>	1308631708	ekinse	1	121.32.155.193	threads	posts	0	GET={action=threads; op=posts; do=search; searchsubmit=1; users=vjn; }; POST={};
+<?PHP exit;?>	1308631871	ekinse	1	121.32.155.193	members	ban	0	GET={action=members; op=ban; }; POST={};
+<?PHP exit;?>	1308632064	ekinse	1	121.32.155.193	threads	posts	0	GET={action=threads; op=posts; do=search; searchsubmit=1; users=vjn; }; POST={};
+<?PHP exit;?>	1308632099	ekinse	1	121.32.155.193	threads	posts	0	GET={action=threads; op=posts; do=search; searchsubmit=1; users=woqi; }; POST={};
+<?PHP exit;?>	1308632199	ekinse	1	121.32.155.193	threads	posts	0	GET={action=threads; op=posts; do=search; searchsubmit=1; users=woqi; }; POST={};
+<?PHP exit;?>	1308639099	ekinse	1	121.32.155.193	login		9	GET={fid=9; }; POST={};
+<?PHP exit;?>	1308639110	ekinse	1	121.32.155.193	login		27	GET={fid=27; }; POST={};
+<?PHP exit;?>	1308639118	ekinse	1	121.32.155.193	threads		9	GET={fid=9; }; POST={};
+<?PHP exit;?>	1308639137	ekinse	1	121.32.155.193	threads	threads	27	GET={action=threads; op=threads; }; POST={do=search; fid=27; threadoption=0; users=; starttime=; endtime=; keywords=; viewsmore=; viewsless=; noreplydays=; repliesmore=; repliesless=; };
+<?PHP exit;?>	1308639152	ekinse	1	121.32.155.193	threads	posts	27	GET={action=threads; op=posts; fid=27; }; POST={};
+<?PHP exit;?>	1308639155	ekinse	1	121.32.155.193	threads	posts	27	GET={action=threads; op=posts; }; POST={do=search; fid=27; threadoption=0; users=; starttime=2011-4-22; endtime=2011-6-21; keywords=; useip=; searchsubmit=true; };
+<?PHP exit;?>	1308639157	ekinse	1	121.32.155.193	threads	threads	27	GET={action=threads; op=threads; fid=27; }; POST={};
+<?PHP exit;?>	1308639250	ekinse	1	121.32.155.193	threads	posts	0	GET={action=threads; op=posts; do=search; searchsubmit=1; users=root; }; POST={};

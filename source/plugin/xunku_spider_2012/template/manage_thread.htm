@@ -1,0 +1,173 @@
+<table class="tb tb2 " id="tips">
+<tbody>
+<tr><th class="partition">{lang xunku_spider_2012:tishi}</th></tr>
+<tr>
+	<td class="tipsblock" s="1">
+	<ul id="tipslis">
+		<li>{lang xunku_spider_2012:mthread_tishi}</li>
+	</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='manage_thread'>
+<input type='hidden' name='step' value='2'>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:mthread_search}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:mthread_bankuai}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$forum_str}
+	</td>
+	<td class="vtop tips2" s="1"></td>
+</tr>
+
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:mthread_source}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$select_site}
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:mthread_source}</td>
+</tr>
+
+<!--<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:mthread_module}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="">
+				<input class="radio" type="radio" name="ifcheck" value="1"> {lang xunku_spider_2012:mthread_show}
+			</li>
+			<li class="">
+				<input class="radio" type="radio" name="ifcheck" value="0"> {lang xunku_spider_2012:mthread_hidden}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1"></td>
+</tr>-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:mthread_per}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="perpage" value="" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1"></td>
+</tr>
+</tbody></table>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+</form>
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='manage_thread'>
+<input type='hidden' name='job' id='job' value='multidel'>
+<input type='hidden' name='step' value='2'>
+<!--{if $cmode }-->
+<input type='hidden' name='cmode' value='2'>
+<!--{/if}-->
+<table class="tb tb2 ">
+<tbody>
+<tr><th colspan="15" class="partition">
+<a href="$basename&pmod=manage_thread&cmode=0">{lang xunku_spider_2012:mthread_forum}</a>
+<span style="font-size:12px;padding-left:20px">
+<a href="$basename&pmod=manage_thread&cmode=1">{lang xunku_spider_2012:mthread_cms}</a>
+</th></tr>
+<tr class="header">
+	<th></th>
+	<th>{lang xunku_spider_2012:mthread_list_source}</th>
+	<th>{lang xunku_spider_2012:mthread_list_bankuai}</th>
+	<th>{lang xunku_spider_2012:mthread_list_title}</th>
+	<th>{lang xunku_spider_2012:mthread_list_post}</th>
+	<th>{lang xunku_spider_2012:mthread_author}</th>
+	<th>{lang xunku_spider_2012:mthread_posttime}</th>
+	<th>{lang xunku_spider_2012:mthread_statue}</th>
+	<th>{lang xunku_spider_2012:mthread_action}</th>
+</tr>
+<!--{if $cmode }-->
+<!--{if $tpcdb }-->
+<!--{loop $tpcdb $key $val}-->
+<tr class="hover">
+	<td><input class="checkbox" type="checkbox" name="tidarray[]" value="{$val[aid]}"></td>
+	<td>{$source_info_now[$val[source_key]][title]}</td>
+	<td><a href="portal.php?mod=list&catid={$val[catid]}" target="_blank">{$catids[$val[catid]]}</a></td>
+	<td><a href="portal.php?mod=view&aid={$val[aid]}" target="_blank">{$val[title]}</a></td>
+	<td class="td28">{$val[commentnum]}</td>
+	<td>{$val[username]}</td>
+	<td>{$val[dateline]}</td>
+	<td>
+<!--{if $val[displayorder] == -2}-->
+	<span style="color:red">{lang xunku_spider_2012:mthread_statue_1}</span>
+<!--{else}-->
+	<span style="color:blue">{lang xunku_spider_2012:mthread_statue_2}</span>
+<!--{/if}-->
+	</td>
+	<td> 
+<!--{if $val[displayorder] == -2}-->
+		<a href="$basename&pmod=manage_thread&id={$val[tid]}&job=pass">{lang xunku_spider_2012:mthread_action_1}</a> | 
+<!--{/if}-->
+		<a href="$basename&pmod=manage_thread&id={$val[aid]}&job=hidden&cmode=2">{lang xunku_spider_2012:mthread_action_2}</a> |
+		<a href="$basename&pmod=manage_thread&id={$val[aid]}&job=del&cmode=2">{lang xunku_spider_2012:mthread_action_3}</a>
+	</td>
+</tr>
+<!--{/loop}-->
+<!--{/if}-->
+<!--{else}-->
+<!--{if $tpcdb }-->
+<!--{loop $tpcdb $key $val}-->
+<tr class="hover">
+	<td><input class="checkbox" type="checkbox" name="tidarray[]" value="{$val[tid]}"></td>
+	<td>{$source_info_now[$val[source_key]][title]}</td>
+	<td><a href="forum.php?mod=forumdisplay&fid={$val[fid]}" target="_blank">{$forum_arr[$val[fid]]}</a></td>
+<!--{if $val[displayorder] == '-2' }-->
+	<td><a href="forum.php?mod=viewthread&tid={$val[tid]}&modthreadkey={$val[modthreadkey]}" target="_blank">{$val[subject]}</a></td>
+<!--{else}-->
+	<td><a href="forum.php?mod=viewthread&tid={$val[tid]}" target="_blank">{$val[subject]}</a></td>
+<!--{/if}-->
+	<td class="td28">{$val[postnum]}</td>
+	<td>{$val[author]}</td>
+	<td>{$val[dateline]}</td>
+	<td>
+<!--{if $val[displayorder] == -2}-->
+	<span style="color:red">{lang xunku_spider_2012:mthread_statue_1}</span>
+<!--{else}-->
+	<span style="color:blue">{lang xunku_spider_2012:mthread_statue_2}</span>
+<!--{/if}-->
+	</td>
+	<td> 
+<!--{if $val[displayorder] == -2}-->
+		<a href="$basename&pmod=manage_thread&id={$val[tid]}&job=pass">{lang xunku_spider_2012:mthread_action_1}</a> | 
+<!--{/if}-->
+		<a href="$basename&pmod=manage_thread&id={$val[tid]}&job=hidden">{lang xunku_spider_2012:mthread_action_2}</a> |
+		<a href="$basename&pmod=manage_thread&id={$val[tid]}&job=del">{lang xunku_spider_2012:mthread_action_3}</a>
+	</td>
+</tr>
+<!--{/loop}-->
+<!--{/if}-->
+<!--{/if}-->
+<tr><td class="td25" colspan="7"><input name="chkall" id="chkall" type="checkbox" class="checkbox" onclick="checkAll('prefix', this.form, 'tidarray', 'chkall')"><label for="chkall">{lang xunku_spider_2012:quanxuan}</label></td></tr>
+</tbody></table>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" onclick='javascript:getElementById("job").value="multidel";' title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_multidel}">
+	<input type="submit" class="btn" id="submit" name="submit" onclick='javascript:getElementById("job").value="multipass";'  title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_multipass}">
+	<input type="submit" class="btn" id="submit" name="submit" onclick='javascript:getElementById("job").value="multihidden";' title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_multihidden}">
+</div>
+</form>
+</div>
+<div class="cuspages left">{$multipage}</div>

@@ -1,0 +1,121 @@
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='baseconfig'>
+<input type='hidden' name='step' value='2'>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:baseconfig_title}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:baseconfig_spider_now}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="checked">
+				<input class="radio" type="radio" name="if_open_now" value="1" {$if_open_now_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li>
+				<input class="radio" type="radio" name="if_open_now" value="0" {$if_open_now_N}> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:baseconfig_spider_now_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:baseconfig_spider_later}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul onmouseover="altStyle(this);">
+			<li class="checked">
+				<input class="radio" type="radio" name="if_open_later" value="1" {$if_open_later_Y}> {lang xunku_spider_2012:choost_yes}
+			</li>
+			<li>
+				<input class="radio" type="radio" name="if_open_later" value="0" {$if_open_later_N> {lang xunku_spider_2012:choost_no}
+			</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:baseconfig_spider_later_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:baseconfig_password}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="global_password" value="{$global_password}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:baseconfig_password_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:baseconfig_sheng}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="global_from" value="{$global_from}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:baseconfig_sheng_des}</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:baseconfig_title_gaoji}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:baseconfig_att}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="global_att" value="{$global_att}" type="text" class="txt">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:baseconfig_att_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:baseconfig_majia}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="global_majia" id="global_majia" cols="50" class="tarea" style="height: 75px; ">{$global_majia}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:baseconfig_majia_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:baseconfig_monipost}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="global_posts" id="global_posts" cols="50" class="tarea" style="height: 75px; ">{$global_posts}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:baseconfig_monipost_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:baseconfig_replace}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="global_replaces" id="global_replaces" cols="50" class="tarea" style="height: 75px; ">{$global_replaces}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:baseconfig_replace_des}</td>
+</tr>
+</tbody></table>
+</div>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+</form>

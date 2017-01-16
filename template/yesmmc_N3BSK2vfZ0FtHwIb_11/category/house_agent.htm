@@ -1,0 +1,165 @@
+{template category/header}
+<style id="diy_style" type="text/css"></style>
+<!--{if $usergroup}-->
+<div id="pt" class="bm cl">
+	<div class="z">
+		<a href="house.php" class="nvhm" id="fjump" title="{$channel[title]}">$channel[title]</a><em>&raquo;</em><a href="house.php?mod=agent">{lang house_house_agent}</a><em>&rsaquo;</em>$usergroup[title]
+	</div>
+	<div class="z"><!--{hook/index_status_extra}--></div>
+</div>
+<!--{/if}-->
+<!--{if $usergroup}-->
+<div id="ct" class="wp cl">
+	<div class="mn">
+		<!--{if $recommendlist}-->
+		<div class="bm">
+			<div class="bm_h cl">
+				<h2>{lang house_new_src}</h2>
+			</div>
+			<div class="bm_c">
+				<ul class="ml mlm cl">
+					<!--{loop $recommendlist $data}-->
+					$data
+					<!--{/loop}-->
+				</ul>
+			</div>
+		</div>
+		<!--{/if}-->
+		<div class="bm bw0">
+		    <ul class="qtb cl">
+		    	<!--{loop $sortlist $id $sort}-->
+		    		<li {if $sortid == $id} class="a"{/if}><a href="$modurl?mod=agent&action=store&amp;gid=$gid&amp;sortid=$id">$sort[name]</a></li>
+		    	<!--{/loop}-->
+		    </ul>
+			<div class="ptm pbm bbda cl">
+				{lang house_with_result}
+			</div>
+			<!--{if $_G['category_threadcount']}-->
+			<div id="threadlist">
+				<ul class="cgl cl">
+					<!--{loop $_G['category_threadlist'] $key $thread}-->
+						<li <!--{if $thread['expiration'] && $thread['expiration'] <= $_G['timestamp']}--> class="hscs"<!--{/if}-->>
+							<div class="opt">
+								<!--{if $ischanneladmin || $isgroupadmin || $_G[uid] && $thread['authorid'] == $_G[uid]}--><a href="$modurl?mod=post&amp;action=edit&amp;tid=$thread[tid]">[{lang house_edit}]</a><!--{/if}-->
+								<!--{if $ischanneladmin || $isgroupadmin}--><a href="javascript:;" onclick="return showDialog('{lang house_del_topic}', 'confirm', '{lang house_attention}', function(){location.href = '$modurl?mod=threadmod&action=delthread&moderate[]=$thread[tid]&uid=$thread[authorid]&sortid=$thread[sortid]';});return false;">[{lang house_delete}]</a><!--{/if}-->&nbsp;
+								<!--{if $ischanneladmin || $isgroupadmin && $usergroup['allowpush']}--><a href="javascript:;" onclick="modcategorythread(1, 'push', $thread[tid], $gid)">[{lang house_promote}]</a> <!--{/if}-->
+								<!--{if $ischanneladmin || $isgroupadmin && $usergroup['allowrecommend']}--><a href="javascript:;" onclick="modcategorythread(1, 'recommend', $thread[tid], $gid)">[{lang house_stick}]</a> <!--{/if}-->
+								<!--{if $ischanneladmin || $isgroupadmin && $usergroup['allowhighlight']}--><a href="javascript:;" onclick="modcategorythread(1, 'highlight', $thread[tid], $gid)">[{lang house_highlight}]</a><!--{/if}-->&nbsp;
+								<!--{if $ischanneladmin}--><a href="javascript:;" onclick="modcategorythread(1, 'stick', $thread[tid], $uid)">[{lang totop}]</a><!--{/if}-->
+							</div>
+							<!--{if $thread['expiration'] && $thread['expiration'] <= $_G['timestamp']}--><div class="cs">- {lang house_overdue} -</div><!--{/if}-->
+							<!--{if $thread['displayorder']}--><div class="hot">hot</div><!--{/if}-->
+							$stemplate[$thread[tid]]
+						</li>
+					<!--{/loop}-->
+				</ul>
+			</div>
+			<!--{else}-->
+				<div class="ptm pbm xs2">{lang house_with_result_nothing}</div>
+			<!--{/if}-->
+		</div>
+		<div class="pgs mtm cl">
+			$multipage
+			<span class="pgb y"><a href="$modurl">{lang return_index}</a></span>
+		</div>
+	</div>
+	<div class="sd">
+		<div class="drag">
+			<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="bm">
+			<div class="bm_h">
+				<h2>{lang broker_info}</h2>
+			</div>
+			<div class="bm_c b_usergroup">
+				<div class="atc"><img src="$usergroup[banner]"/></div>
+				<div class="uil">
+					<p class="xw1 xi2 xs2 mtm">$usergroup[title]</p>
+					<dl class="cl">
+						<dt>{lang house_house_broker}</dt><dd>$usergroup[membernum]{lang house_people}</dd>
+						<dt>{lang house_housenum}</dt><dd>$usergroup[threads]{lang house_suit}</dd>
+					</dl>
+					<p class="xg1">$usergroup[description]</p>
+				</div>
+			</div>
+		</div>
+		<div class="bm xld">
+			<div class="bm_h">
+				<h2>{lang stick_member}</h2>
+			</div>
+			<div class="bm_c">
+				<!--{loop $memberlist $uid $member}-->
+				<dl class="cl">
+					<dd class="m">$member[avatar]</dd>
+					<dt><a href="house.php?mod=broker&amp;action=my&amp;uid=$uid" target="_blank">$member[username]</a></dt>
+					<dd>
+						<p>{lang post_count}</p>
+					</dd>
+				</dl>
+				<!--{/loop}-->
+			</div>
+		</div>
+		<div class="drag">
+			<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+		</div>
+	</div>
+</div>
+<!--{else}-->
+<div id="ct" class="wp wpi cl">
+	<div class="mn">
+		<div class="bm">
+			<div class="bm_h">
+				<h3>{lang house_house_agent}</h3>
+			</div>
+			<div class="bm_c">
+				<ul class="ml mlm cl">
+					<!--{loop $usergrouplist $gid $group}-->
+						<li>
+							<a target="_blank" href="$modurl?mod=agent&amp;action=store&amp;gid=$gid"><img src="$group[banner]"></a>
+							<p class="mtn"><a href="$modurl?mod=agent&amp;action=store&amp;gid=$gid">$group[title]</a></p>
+						</li>
+					<!--{/loop}-->
+				</ul>
+				<div class="pgs mtm cl">$multipage</div>
+			</div>
+		</div>
+	</div>
+	<div class="sd">
+		<div class="drag">
+			<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="bm">
+			<div class="bm_h">
+				<h2>{lang house_agent_top}</h2>
+			</div>
+			<div class="bm_c">
+				<ul class="xl">
+					<!--{loop $topgrouplist $gid $group}-->
+						<li>
+							<em>$group[threads] {lang house_suit}</em>
+							<a href="$modurl?mod=agent&amp;action=store&amp;gid=$gid" target="_blank">$group[title]</a>
+						</li>
+					<!--{/loop}-->
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--{/if}-->
+<form method="post" autocomplete="off" name="modactions" id="modactions">
+<input type="hidden" name="formhash" value="{FORMHASH}" />
+<input type="hidden" name="optgroup" />
+</form>
+<script language="javascript">
+	function modcategorythread(optgroup, operation, tid, gid) {
+		var operation = !operation ? '' : operation;
+		$('modactions').action = '$modurl?mod=threadmod&sortid='+ $sortid +'&moderate[]=' + tid + '&operation=' + operation + '&gid=' + gid + '&infloat=yes&nopost=yes';
+		$('modactions').optgroup.value = optgroup;
+		hideWindow('mods');
+		showWindow('mods', 'modactions', 'post', 0);
+		if(BROWSER.ie) {
+			doane(event);
+		}
+	}
+</script>
+<!--{template common/footer}-->

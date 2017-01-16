@@ -1,0 +1,128 @@
+{subtemplate category/header}
+
+<script>
+function checkappsubmit(theform) {
+	theform.appsubmit.disabled = true;
+	theform.realname.disabled = false;
+	return true;
+}
+</script>
+<style id="diy_style" type="text/css"></style>
+<div id="pt" class="bm cl">
+	<div class="z">
+		<a href="house.php" class="nvhm" id="fjump" title="{$channel[seoinfo][seotitle]}">$channel[seoinfo][seotitle]</a><em>&raquo;</em><a href="house.php?mod=usergroup">{lang house_broker}</a><em>&rsaquo;</em>{lang house_application}
+	</div>
+	<div class="z"><!--{hook/index_status_extra}--></div>
+</div>
+<div id="ct" class="wp cl">
+	<div class="mn">
+		<div class="bm">
+			<div class="bm_h">
+				<h3>{lang house_application}</h3>
+			</div>
+			<div class="bm_c">
+				<!--{if $userinfo['verify'] == 0}-->
+					<div class="msg">{lang house_verifying}</div>
+				<!--{elseif isset($current_title)}-->
+					<div class="msg">{lang house_is_broker}</div>
+				<!--{/if}-->
+				<form id="applicationform" method="post" action="$modurl?mod=agent&action=application" onsubmit="return checkappsubmit(this)">
+					<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+					<input type="hidden" name="applicationsubmit" id="applicationsubmit" value="1" />
+					<div class="exfm cl">
+						<div class="sinf bw0">
+							<dl>
+								<dt><strong class="rq">*</strong>{lang house_realname}</dt>
+								<dd><input type="text" name="realname" id="realname" class="px" value="$userinfo[realname]" style="width: 260px;" <!--{if $userinfo[realname]}-->disabled<!--{/if}-->/><font color="red">{lang house_cannot_edit}</font></dd>
+
+								<dt><strong class="rq">*</strong>{lang house_tel}</dt>
+								<dd><input type="text" name="tel" id="tel" class="px" value="$userinfo[tel]" style="width: 260px;"/></dd>
+
+								<dt>{lang house_address}</dt>
+								<dd><input type="text" name="address" id="address" class="px" value="$userinfo[address]" style="width: 260px;"/></dd>
+
+								<dt><strong class="rq">*</strong>{lang house_your_agent}</dt>
+								<dd>
+									<span id="agent_select">
+									<select name="usergroup" id="usergroup">
+										<option value="0">{lang house_select_agent}</option>
+										<!--{loop $grouplist $group}-->
+										<option value="$group[gid]" $group[selected]>$group[title]</option>
+										<!--{/loop}-->
+									</select>&nbsp;&nbsp;
+									<a id="newagent_a" href="javascript:;" onclick="$('newagentdiv').style.display='';$('agent_select').style.display='none'">{lang house_new_agent}</a>
+									</span>
+									<span id="newagentdiv" style="display:none;">
+										<input type="text" name="newagent" id="newagent" />&nbsp;&nbsp;
+										<a href="javascript:;" onclick="$('agent_select').style.display='';$('newagentdiv').style.display='none';$('newagent').value=''">{lang house_cancel}</a>
+									</span>
+								</dd>
+
+								<dt><strong class="rq">*</strong>{lang house_broker_area}</dt>
+								<dd>
+									<select name="city" onchange="ajaxget('category.php?mod=misc&action=area&do=house&cityid='+ this.value, 'districtlist');" tabindex="1" class="ps">
+										<option value="0">{lang house_city}</option>
+										$citylist
+									</select>
+									<em id="districtlist">
+										<select name="district" onchange="ajaxget('category.php?mod=misc&action=area&do=house&districtid='+ this.value, 'streetlist');" tabindex="2" class="ps">
+											<option value="0">{lang house_district}</option>
+											$districtlist
+										</select>
+									</em>
+									<em id="streetlist">
+										<select name="street" tabindex="3" class="ps">
+											<option value="0">{lang house_street}</option>
+											$streetlist
+										</select>
+									</em>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="mtm" style="margin-left: 75px">
+						<button tabindex="1" name="appsubmit" value="true" class="pn pnc" id="postsubmit" type="submit"><span>{lang house_submit_info}</span></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="sd">
+		<div class="drag">
+			<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="bm">
+			<div class="bm_h">
+				<h3>{lang house_green_channel}</h3>
+			</div>
+			<div class="bm_c">
+				<ul class="xl xl2 xlq cl">
+					<!--{loop $sortlist $key $sort}-->
+					<li><a href="house.php?mod=post&action=nav&amp;sortid=$key">{lang house_post}$sort[name]</a></li>
+					<!--{/loop}-->
+					<li class="qs"><a href="house.php?mod=broker&amp;action=my&amp;uid=$_G[uid]">{lang house_manage}</a></li>
+					<li class="qa">
+						<!--{if $usergroupid > 1}-->
+							<a href="house.php?mod=broker&action=setting">{lang house_setting}</a>
+						<!--{else}-->
+							<a href="house.php?mod=agent&amp;action=application">{lang house_application}</a>
+						<!--{/if}-->
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="drag">
+			<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+		</div>
+	</div>
+</div>
+<!--{if $userinfo['verify'] == 0 || isset($current_title)}-->
+<script>
+var frm = document.forms['applicationform'];
+$('newagent_a').style.display = 'none';
+for (var i = 0; i < frm.elements.length; i++) {
+	frm.elements[i].disabled = true;
+}
+</script>
+<!--{/if}-->
+<!--{template common/footer}-->

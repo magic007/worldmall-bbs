@@ -1,0 +1,195 @@
+<link href="http://www.worldmall.cn/themes/mall/red2/styles/default/css/bbscommon.css" rel="stylesheet" type="text/css" />
+<link href="http://www.worldmall.cn/themes/mall/red2/styles/default/css/bbsheader.css" rel="stylesheet" type="text/css" />
+<script LANGUAGE="JavaScript">
+	var search_isclick=0;
+function keyword_onclick(obj_this)
+{				
+	if(search_isclick==0)
+	obj_this.value='';
+	search_isclick++;
+	
+}
+
+</script>
+    <!--bbs我的信息块开始-->
+      <div class="wp" style="position:relative;z-index:10000;">
+	<div id="mys" style="display: none; right:175px;top: 34px;">
+		<div class="mysn">
+			<div class="mysnb">
+				<div class="ums">
+					<div class="avt"><div class="avt y"><a href="home.php?mod=space&uid=$_G[uid]"><!--{avatar($_G[uid],small)}--></a></div></a></div>
+					<div class="nam">
+						<strong class="vwmy{if $_G['setting']['connect']['allow'] && $_G[member][conisbind]} qq{/if}"><a href="home.php?mod=space&uid=$_G[uid]" target="_blank" title="{lang visit_my_space}">{$_G[member][username]}</a></strong>
+						<p class="j"><a href="home.php?mod=spacecp&ac=usergroup"{if $upgradecredit !== 'false'} id="g_upmine" )"{/if}>$_G[group][grouptitle]</a></p>
+						<p class="j">查看<a href="home.php?mod=spacecp&ac=credit&showcredit=1" id="extcreditmenu"{if !$_G[setting][bbclosed]} onmouseover="delayShow(this, showCreditmenu);" {/if}>{lang credits}: $_G[member][credits]</a></p>
+					</div>
+				</div>
+				<div class="ums2">
+					<!--{if $_G['group']['allowinvisible']}-->
+					<span id="loginstatus">
+					<a id="loginstatusid" href="member.php?mod=switchstatus" title="{lang login_switch_invisible_mode}" onClick="ajaxget(this.href, 'loginstatus');return false;" class="xi2"></a>
+					</span>
+					<!--{/if}-->
+					<a href="home.php?mod=spacecp">{lang setup}</a>
+					<a href="home.php?mod=space&do=pm" id="pm_ntc"{if $_G[member][newpm]} class="new"{/if}>{lang pm_center}</a>
+					<a href="home.php?mod=space&do=notice" id="myprompt"{if $_G[member][newprompt]} class="new"{/if}>{lang remind}<!--{if $_G[member][newprompt]}-->($_G[member][newprompt])<!--{/if}--></a><span id="myprompt_check"></span>
+					<!--{if $_G['setting']['taskon'] && !empty($_G['cookie']['taskdoing_'.$_G['uid']])}--><a href="home.php?mod=task&item=doing" id="task_ntc" class="new">{lang task_doing}</a><!--{/if}-->
+					<!--{if ($_G['group']['allowmanagearticle'] || $_G['group']['allowpostarticle'] || $_G['group']['allowdiy'] || getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3))}-->
+						<a href="portal.php?mod=portalcp"><!--{if $_G['setting']['portalstatus'] }-->{lang portal_manage}<!--{else}-->{lang portal_block_manage}<!--{/if}--></a>
+					<!--{/if}-->
+					<!--{if $_G['uid'] && $_G['group']['radminid'] > 1}-->
+						<a href="forum.php?mod=modcp&fid=$_G[fid]" target="_blank">{lang forum_manager}</a>
+					<!--{/if}-->
+					<!--{if $_G['uid'] && getstatus($_G['member']['allowadmincp'], 1)}-->
+						<a href="admin.php" target="_blank">{lang admincp}</a>
+						<a href="javascript:openDiy();" title="{lang open_diy}">DIY面板</a>
+			
+					<!--{/if}-->
+			
+					<!--{hook/global_usernav_extra2}-->
+					<a href="member.php?mod=logging&action=logout&formhash={FORMHASH}" class="lot" >{lang logout}</a>
+				</div>
+				<div class="adm"></div>
+				<div class="ums3">
+					<!--{loop $_G['setting']['mynavs'] $nav}-->
+						<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->
+							$nav[code]
+						<!--{/if}-->
+					<!--{/loop}-->
+				</div>
+			</div>
+		</div>
+	</div>  
+</div>
+<!--bbs我的信息块结束-->
+
+<div class="site_nav">
+    <div class="main">
+      <div class="fl navLogin">
+         
+        <form method="post" id="index_login_form" action="index.php?app=member&amp;act=login">
+        <label>用户名：<input name="user_name" type="text" /></label>
+    <label>密码：<input type="password" name="password" /></label>
+    <input type="hidden" name="ret_url" ectype="head_ret_url" value="" size="12" />
+    <input type="submit" value="登录" class="login"  />
+    <a ectype="dialog" dialog_id='login' dialog_width="870" uri="index.php?app=member&act=ajaxLogin&ajax=1" href="javascript:;" class="register">免费注册</a>
+    <a  title="通过QQ帐号登录世界窗"  href="index.php?app=member&amp;act=login&amp;qq=true"><img src="http://www.worldmall.cn/themes/mall/red2/styles/default/images/qq.png" alt="QQ" />登录</a>
+    <a title="通过新浪微博帐号登录世界窗" href="index.php?app=member&amp;act=login&amp;sina=true"><img src="http://www.worldmall.cn/themes/mall/red2/styles/default/images/sina.png" alt="新浪" />登录</a>
+        </form>
+     
+        
+        <!--您好，欢迎来到世界窗！查看批发价请<a href="#" class="cred">[请登录]</a><a href="#" class="cred">[免费注册]</a>--> 
+      </div>
+    <div class="fr shortcut">
+      <a href="index.php?app=member&amp;act=go_buyer">我是买家</a>|
+        <a href="index.php?app=apply" title="申请开店">我要开店</a>|
+            <a href="index.php?app=article&code=help">帮助中心</a>|
+            <a href="javascript:;" onclick="addtofavorite();">收藏本站</a>|
+        <strong>世界窗批发热线：020-86378968</strong>
+      </div>
+    </div>
+  </div>
+  <div id="header">
+
+  <div class="main">
+    <a id="logo" href="http://www.worldmall.cn"><h1 class="hide">世界窗在线皮具批发市场</h1></a>
+    <div class="nav">
+      <ul>
+        <li><a href="http://www.worldmall.cn" class="current" >首页</a></li>
+                <li><a class="hover" href="index.php?app=search&goods_grade=0&order=add_time desc">所有款式</a></li>
+                <li><a class="hover" href="/search/products/new">网代专区</a></li>
+                <li><a class="hover" href="/brand">品牌区</a></li>
+                <li><a class="hover" href="http://bbs.worldmall.cn">同窗社区</a></li>
+                
+      </ul>
+    </div>
+  <!--<div class="attention"><wb:follow-button uid="2095506602" type="red_2" width="136" height="24" ></wb:follow-button></div> -->
+  </div>
+   
+<div class="mall_search">
+  <div class="main">
+  <form action="index.php" method="get" class="search_main">
+        <div class="search_type">
+    <ul class="pitch_up">
+    <li>商品<i></i></li>
+    </ul>
+    <ul class="toselect" style="display:none;">
+    <li class="curr"><a val="search">商品</a></li>
+    <li ><a val="brand">品牌</a></li>
+    </ul>
+        <input type="hidden" id="act" name="act" value="index" />
+    </div>
+        <input name="keyword" type="text" value="请输入关键词" />
+        <!--<input id="act" name="act" value="groupbuy" type="hidden">
+                <input id="act" name="act" value="store" type="hidden">-->
+        <input type="hidden" id="app" name="app" value="search"/>
+        <input type="hidden" id="order" name="order" value="sales desc" />
+        <button>搜索</button>
+    </form>
+        <div class="hotwords">热门搜索： 
+           
+          <a href="index.php?app=search&amp;keyword=宾利">宾利</a>| 
+           
+          <a href="index.php?app=search&amp;keyword=时尚">时尚</a>| 
+           
+          <a href="index.php?app=search&amp;keyword=真皮">真皮</a> 
+           
+        </div>
+        <div class="mymall">
+        <div class="user">
+          <a class="menu_hd user_hd" href="index.php?app=member">用户中心<i></i></a>
+          <div class="mymall_bd" style="display: none; ">
+            <div class="hd"><b>用户名</b><a href="#">世界窗首页</a></div>
+            <div class="bd">
+              <ul>
+                                              <li><a href="index.php?app=my_question">咨询回复</a></li>
+                <li><a href="index.php?app=my_favorite">我收藏的商品</a></li>
+                <li><a href="index.php?app=buyer_order&amp;type=pending">未付款的订单</a></li>
+                <li><a href="index.php?app=buyer_order&amp;type=finished">历史订单</a></li>
+                <li><a href="index.php?app=my_address">我的地址</a></li>
+                
+                <!--<li><a href="javascript:;">我的积分（）</a></li> -->
+                
+                <li><a href="index.php?app=recharge">我的账户</a></li>
+                <li><a href="index.php?app=my_comment">待评价的商品</a></li>
+                              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mycart">
+          <a class="menu_hd mycart_hd" href="index.php?app=cart">去购物车结算<i></i></a>         
+          <div class="mymall_bd" style="display: none; ">
+          <div class="no-goods">购物车中还没有商品，赶紧选购吧!</div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+    <div id="nv_e">
+				<!--{if !empty($_G['setting']['plugins']['jsmenu'])}-->
+					<ul class="p_pop h_pop" id="plugin_menu" style="display: none">
+					<!--{loop $_G['setting']['plugins']['jsmenu'] $module}-->
+						 <!--{if !$module['adminid'] || ($module['adminid'] && $_G['adminid'] > 0 && $module['adminid'] >= $_G['adminid'])}-->
+						 <li>$module[url]</li>
+						 <!--{/if}-->
+					<!--{/loop}-->
+					</ul>
+				<!--{/if}-->
+				$_G[setting][menunavs]
+ 
+			</div>
+		</div>
+		<!--{if !IS_ROBOT}-->
+			<!--{if $_G['uid'] && !empty($_G['style']['extstyle'])}-->
+				<div id="sslct_menu" class="cl p_pop" style="display: none;">
+					<!--{if !$_G[style][defaultextstyle]}--><span class="sslct_btn" onclick="extstyle('')" title="{lang default}"><i></i></span><!--{/if}-->
+					<!--{loop $_G['style']['extstyle'] $extstyle}-->
+						<span class="sslct_btn" onclick="extstyle('$extstyle[0]')" title="$extstyle[1]"><i style='background:$extstyle[2]'></i></span>
+					<!--{/loop}-->
+				</div>
+			<!--{/if}-->
+ 
+		<!--{/if}-->
+ 
+                </div>

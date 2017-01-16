@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[security.plugin]]></item>
+	<item id="SN"><![CDATA[2012061109E1SXS1c1Zc]]></item>
+	<item id="RevisionID"><![CDATA[1]]></item>
+	<item id="RevisionDateline"><![CDATA[1346729873]]></item>
+	<item id="Data">
+		<item id="/unlock.inc.php"><![CDATA[5e8f7ed9f8a7f95c21138f8805a353e6]]></item>
+		<item id="/index.htm"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></item>
+		<item id="/discuz_plugin_security_TC_BIG5.xml"><![CDATA[7fcb7f839af8dd6dcde3c7b753adc215]]></item>
+		<item id="/sitemaster.inc.php"><![CDATA[e0c49c91a2abaf1294167b51e9c1fc1d]]></item>
+		<item id="/discuz_plugin_security_SC_UTF8.xml"><![CDATA[f0bb4d10d3f8e25aaad06c520e6b28cb]]></item>
+		<item id="/template/index.htm"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></item>
+		<item id="/template/seccode.htm"><![CDATA[81051bcc2cf1bedf378224b0a93e2877]]></item>
+		<item id="/job.inc.php"><![CDATA[216d4ccb58b6412faca6fe230354f8c5]]></item>
+		<item id="/install.php"><![CDATA[cb96d220f2060c1aaa06b00b7cd1e532]]></item>
+		<item id="/upgrade.php"><![CDATA[590582abcb945411358d3826e72f7542]]></item>
+		<item id="/discuz_plugin_security_TC_UTF8.xml"><![CDATA[bf63ac8e21385527ce0b81cfd5f8d214]]></item>
+		<item id="/discuz_plugin_security_SC_GBK.xml"><![CDATA[469b870a55d93c53e32d5fbfd7f36b20]]></item>
+		<item id="/security.class.php"><![CDATA[77c1583da31432bdbb49b9c114379db6]]></item>
+		<item id="/table/index.htm"><![CDATA[d41d8cd98f00b204e9800998ecf8427e]]></item>
+		<item id="/table/table_security_eviluser.php"><![CDATA[d697a6e9fae9fdd2fceb4fb534b0b012]]></item>
+		<item id="/table/table_security_failedlog.php"><![CDATA[31f673c4e99a2da286e0726b765cc0d3]]></item>
+		<item id="/table/table_security_evilpost.php"><![CDATA[1d2a4834e4a95a7f74bd4541d10f7d14]]></item>
+	</item>
+</root>

@@ -1,0 +1,5 @@
+<!--{template common/header}-->
+<select name="$var" style="width:auto" class="ps" <!--{if $var == "district"}--> onchange="ajaxget('category.php?mod=misc&action=area&do=house&districtid='+ this.value, 'streetlist');"<!--{/if}-->>
+	$selectarealist
+</select>
+<!--{template common/footer}-->

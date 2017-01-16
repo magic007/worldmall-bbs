@@ -1,0 +1,171 @@
+{template category/header}
+
+<style id="diy_style" type="text/css"></style>
+<!--{if $uid}-->
+<div id="pt" class="bm cl">
+	<div class="z">
+		<a href="house.php" class="nvhm" id="fjump" title="{$channel[title]}">$channel[title]</a><em>&raquo;</em><a href="house.php?mod=broker">{lang house_broker}</a><em>&rsaquo;</em>{lang personal_information}
+	</div>
+	<div class="z"><!--{hook/index_status_extra}--></div>
+</div>
+<!--{/if}-->
+<div id="ct" class="wp cl">
+<!--{if $action == 'list'}-->
+	<div class="mn">
+		<div class="drag">
+			<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="bm">
+			<div class="bm_h">
+				<h3>{lang house_broker}</h3>
+			</div>
+			<div class="bm_c">
+				<ul class="cgl cl">
+						<!--{loop $memberlist $member}-->
+						<li>
+							<div class="atc"><a href="house.php?mod=broker&amp;action=my&amp;uid=$member[uid]" target="_blank">$member[avatar]</a></div>
+							<div class="c">
+								<div class="num"><span class="xi2">$member[threads] {lang house_suit}</span></div>
+								<h3><a href="house.php?mod=broker&amp;action=my&amp;uid=$member[uid]" target="_blank">$member[username]</a></h3>
+								<p><em class="xg1">{lang house_your_agent}{lang house_colone}</em><a href="house.php?mod=agent&amp;action=store&amp;gid=$member[groupid]">$member[usergroup]</a></p>
+								<!--{if $member[serverarea]}--><p><em class="xg1">{lang house_broker_area}{lang house_colone}</em>$member[serverarea]</p><!--{/if}-->
+								<!--{if $member[lastpost]}--><p><em class="xg1">{lang house_last_visit}</em>$member[lastpost]</p><!--{/if}-->
+							</div>
+						</li>
+						<!--{/loop}-->
+				</ul>
+				<div class="pgs mtm cl">$multipage</div>
+			</div>
+		</div>
+		<div class="drag">
+			<!--[diy=diy4]--><div id="diy4" class="area"></div><!--[/diy]-->
+		</div>
+	</div>
+	<div class="sd">
+		<div class="drag">
+			<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+		</div>
+		<div class="bm">
+			<div class="bm_h">
+				<h2>{lang house_broker_top}</h2>
+			</div>
+			<div class="bm_c">
+				<ul class="xl">
+					<!--{loop $topmemberlist $member}-->
+						<li><em>$member[threads] {lang house_suit}</em><a href="house.php?mod=broker&amp;action=my&amp;uid=$member[uid]" target="_blank">$member[username]</a></li>
+					<!--{/loop}-->
+				</ul>
+			</div>
+		</div>
+		<div class="drag">
+			<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+		</div>
+	</div>
+<!--{elseif $action == 'my'}-->
+	<div class="mn">
+		<div class="bm bw0 cl">
+			<ul class="qtb cl">
+			    	<!--{loop $sortlist $id $sort}-->
+			    		<li {if $sortid == $id} class="a"{/if}><a href="$modurl?mod=broker&amp;action=my&amp;uid=$uid&amp;sortid=$id">$sort[name]</a></li>
+			    	<!--{/loop}-->
+			</ul>
+			<div class="ptm pbm bbda cl">
+				{lang my_post_count}
+			</div>
+			<!--{if $_G['category_threadcount']}-->
+			<div id="threadlist">
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<input type="hidden" name="listextra" value="$extra" />
+					<ul class="cgl cl">
+						<!--{loop $_G['category_threadlist'] $key $thread}-->
+							<li <!--{if $thread['expiration'] && $thread['expiration'] <= $_G['timestamp']}--> class="hscs"<!--{/if}-->>
+								<div class="opt">
+									<!--{if $ischanneladmin || $thread[isgroupadmin] || $_G[uid] && $thread['authorid'] == $_G[uid]}--><a href="$modurl?mod=post&amp;action=edit&amp;tid=$thread[tid]">[{lang house_edit}]</a><!--{/if}-->
+									<!--{if $ischanneladmin || $thread[isgroupadmin]}--><a href="javascript:;" onclick="return showDialog('{lang house_del_topic}', 'confirm', '{lang house_attention}', function(){location.href = '$modurl?mod=threadmod&action=delthread&moderate[]=$thread[tid]&uid=$thread[authorid]&sortid=$thread[sortid]';});return false;">[{lang house_delete}]</a><!--{/if}-->&nbsp;
+									<!--{if $ischanneladmin || $thread[isgroupadmin] && $thread[usergroup]['allowpush']}--><a href="javascript:;" onclick="modcategorythread(1, 'push', $thread[tid], $uid)">[{lang house_promote}]</a> <!--{/if}-->
+									<!--{if $ischanneladmin || $thread[isgroupadmin] && $thread[usergroup]['allowrecommend']}--><a href="javascript:;" onclick="modcategorythread(1, 'recommend', $thread[tid], $uid)">[{lang house_stick}]</a> <!--{/if}-->
+									<!--{if $ischanneladmin || $thread[isgroupadmin] && $thread[usergroup]['allowhighlight']}--><a href="javascript:;" onclick="modcategorythread(1, 'highlight', $thread[tid], $uid)">[{lang house_highlight}]</a><!--{/if}-->&nbsp;
+									<!--{if $ischanneladmin}--><a href="javascript:;" onclick="modcategorythread(1, 'stick', $thread[tid], $uid)">[{lang totop}]</a><!--{/if}-->
+								</div>
+								<!--{if $thread['expiration'] && $thread['expiration'] <= $_G['timestamp']}--><div class="cs">- {lang house_overdue} -</div><!--{/if}-->
+								<!--{if $thread['displayorder']}--><div class="hot">hot</div><!--{/if}-->
+								$stemplate[$thread[tid]]
+							</li>
+						<!--{/loop}-->
+					</ul>
+			</div>
+			<!--{else}-->
+				<div class="ptm pbm xs2">{lang house_no_post}</a></div>
+			<!--{/if}-->
+		</div>
+		<div class="pgs mtm cl">
+			$multipage
+		</div>
+	</div>
+	{subtemplate category/house_brokernav}
+<!--{elseif $action == 'setting'}-->
+	<div class="mn">
+		<div class="bm">
+			<div class="bm_h">{lang house_setting}</div>
+			<div class="bm_c">
+			<form method="post" action="house.php?mod=broker&action=setting" autocomplete="off" name="settingform" id="settingform">
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<div class="exfm cl">
+					<div class="sinf bw0">
+						<dl>
+							<dt><strong class="rq">*</strong>{lang house_tel}</dt>
+							<dd><input type="text" style="width: 260px;" tabindex="1" value="$member[tel]" class="px" name="tel"></dd>
+							<dt><strong class="rq">*</strong>{lang house_broker_area}</dt>
+							<dd>
+									<select name="city" onchange="ajaxget('category.php?mod=misc&action=area&do=house&cityid='+ this.value, 'districtlist');" tabindex="1" class="ps">
+										<option value="0">{lang house_city}</option>
+										$citylist
+									</select>
+									<em id="districtlist">
+										<select name="district" onchange="ajaxget('category.php?mod=misc&action=area&do=house&districtid='+ this.value, 'streetlist');" tabindex="2" class="ps">
+											<option value="0">{lang house_district}</option>
+											$districtlist
+										</select>
+									</em>
+									<em id="streetlist">
+										<select name="street" tabindex="3" class="ps">
+											<option value="0">{lang house_street}</option>
+											$streetlist
+										</select>
+									</em>
+								</dd>
+							</dd>
+							<dt>{lang house_address}</dt>
+							<dd><input type="text" style="width: 260px;" tabindex="1" value="$member[address]" class="px" name="address"></dd>
+						</dl>
+					</div>
+				</div>
+				<div class="mtm" style="margin-left: 75px">
+					<button tabindex="1" name="settingsubmit" value="true" class="pn pnc" type="submit"><span>{lang house_edit_info}</span></button>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+	{subtemplate category/house_brokernav}
+<!--{/if}-->
+</div>
+
+
+<form method="post" autocomplete="off" name="modactions" id="modactions">
+<input type="hidden" name="formhash" value="{FORMHASH}" />
+<input type="hidden" name="optgroup" />
+</form>
+<script language="javascript">
+	function modcategorythread(optgroup, operation, tid, uid) {
+		var operation = !operation ? '' : operation;
+		$('modactions').action = '$modurl?mod=threadmod&sortid='+ $sortid +'&moderate[]=' + tid + '&operation=' + operation + '&uid=' + uid + '&infloat=yes&nopost=yes';
+		$('modactions').optgroup.value = optgroup;
+		hideWindow('mods');
+		showWindow('mods', 'modactions', 'post', 0);
+		if(BROWSER.ie) {
+			doane(event);
+		}
+	}
+</script>
+<!--{template common/footer}-->

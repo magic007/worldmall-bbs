@@ -1,0 +1,23 @@
+<!--{subtemplate common/header}-->
+<div id="pt" class="bm cl">
+	<div class="z">
+		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em> $topic[title]
+	</div>
+</div>
+<link id="style_css" rel="stylesheet" type="text/css" href="static/topic/t1/style.css">
+<style id="diy_style" type="text/css"></style>
+<div id="widgets">
+</div>
+<div class="wp">
+<!--[diy=diypage]--><div id="diypage" class="area"><div id="frameOEo51B" class="cl_frame_bm frame move-span cl frame-1"><div id="frameOEo51B_left" class="column frame-1-c"><div id="frameOEo51B_left_temp" class="move-span temp"></div><!--{block/49}--></div></div><div id="frames19ZZ4" class="cl_frame_bm frame move-span cl frame-1"><div id="frames19ZZ4_left" class="column frame-1-c"><div id="frames19ZZ4_left_temp" class="move-span temp"></div><!--{block/48}--></div></div><div id="framehSZ9D8" class="cl_frame_bm frame move-span cl frame-1"><div id="framehSZ9D8_left" class="column frame-1-c"><div id="framehSZ9D8_left_temp" class="move-span temp"></div></div></div><div id="frameO1A9lA" class="cl_frame_bm frame move-span cl frame-3-1"><div id="frameO1A9lA_left" class="column frame-3-1-l"><div id="frameO1A9lA_left_temp" class="move-span temp"></div><div id="frameR4FOrK" class="cl_frame_bm frame move-span cl frame-1-1"><div id="frameR4FOrK_left" class="column frame-1-1-l"><div id="frameR4FOrK_left_temp" class="move-span temp"></div><!--{block/50}--></div><div id="frameR4FOrK_center" class="column frame-1-1-r"><div id="frameR4FOrK_center_temp" class="move-span temp"></div><!--{block/35}--></div></div></div><div id="frameO1A9lA_center" class="column frame-3-1-r"><div id="frameO1A9lA_center_temp" class="move-span temp"></div><div id="frameF4Rmsm" class="t_side frame move-span cl frame-1"><div class="title frame-title"><span class="titletext">爱马仕简介</span></div><div id="frameF4Rmsm_left" class="column frame-1-c"><div id="frameF4Rmsm_left_temp" class="move-span temp"></div><!--{block/51}--></div></div></div></div><div id="framesutRRT" class="cl_frame_bm frame move-span cl frame-3-1"><div id="framesutRRT_left" class="column frame-3-1-l"><div id="framesutRRT_left_temp" class="move-span temp"></div><div id="frameULhAaL" class="cl_frame_bm frame move-span cl frame-1-1"><div id="frameULhAaL_left" class="column frame-1-1-l"><div id="frameULhAaL_left_temp" class="move-span temp"></div></div><div id="frameULhAaL_center" class="column frame-1-1-r"><div id="frameULhAaL_center_temp" class="move-span temp"></div></div></div></div><div id="framesutRRT_center" class="column frame-3-1-r"><div id="framesutRRT_center_temp" class="move-span temp"></div><div id="frameZltB0p" class="cl_frame_bm frame move-span cl frame-1"><div id="frameZltB0p_left" class="column frame-1-c"><div id="frameZltB0p_left_temp" class="move-span temp"></div></div></div></div></div></div><!--[/diy]-->
+<!--{if $topic['allowcomment']==1}-->
+	{eval
+		$data = &$topic;
+		$common_url = "portal.php?mod=comment&id=$topicid&idtype=topicid";
+		$form_url = "portal.php?mod=portalcp&ac=comment";
+		$commentlist = portaltopicgetcomment($topicid);	}
+	<!--{template portal/portal_comment}-->
+<!--{/if}-->
+</div>
+
+<!--{subtemplate common/footer}-->

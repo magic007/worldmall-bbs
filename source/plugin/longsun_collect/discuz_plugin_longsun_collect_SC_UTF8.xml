@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2.5]]></item>
+	<item id="Time"><![CDATA[2012-10-15 14:19]]></item>
+	<item id="From"><![CDATA[Discuz! Board]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[0]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[龙抓手采集]]></item>
+			<item id="identifier"><![CDATA[longsun_collect]]></item>
+			<item id="description"><![CDATA[]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[longsun_collect/]]></item>
+			<item id="copyright"><![CDATA[]]></item>
+			<item id="version"><![CDATA[2.05]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[longsun_collect]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[original]]></item>
+					<item id="menu"><![CDATA[伪原创设计]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[2]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="2">
+					<item id="name"><![CDATA[active]]></item>
+					<item id="menu"><![CDATA[龙抓手动态]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[3]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2,X2.5]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[插件使用位置]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[usepositions]]></item>
+				<item id="type"><![CDATA[selects]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[1 = 发贴页
+2 = 列表页
+3 = 弹框页
+4 = 门户文章]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[插件使用版块]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[usefids]]></item>
+				<item id="type"><![CDATA[forums]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[插件可用用户组]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[usergroups]]></item>
+				<item id="type"><![CDATA[groups]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[是否开启伪原创]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[rewriteopen]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[获取远程图片]]></item>
+				<item id="description"><![CDATA[此功能可能会对采集速度造成一定影响，请慎用]]></item>
+				<item id="variable"><![CDATA[remoteopen]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[6]]></item>
+				<item id="title"><![CDATA[显示来源]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[showFrom]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[7]]></item>
+				<item id="title"><![CDATA[选择服务端]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[service]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[1 = 服务端一
+2 = 服务端二
+3 = 服务端三
+4 = 服务端四]]></item>
+			</item>			
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="notlogin"><![CDATA[抱歉，您尚未登录，无法进行此操作]]></item>
+				<item id="urlerror"><![CDATA[抱歉，您输入的网址格式有误]]></item>
+				<item id="adv_success"><![CDATA[高级设置保存成功]]></item>
+				<item id="from"><![CDATA[来源:]]></item>
+				<item id="fail"><![CDATA[采集失败]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="url"><![CDATA[网址]]></item>
+				<item id="collect"><![CDATA[抓取]]></item>
+				<item id="nourl"><![CDATA[请输入网址]]></item>
+				<item id="article"><![CDATA[抓文章]]></item>
+				<item id="posts"><![CDATA[抓帖子]]></item>
+				<item id="video"><![CDATA[抓视频]]></item>
+				<item id="s_url_text"><![CDATA[请输入您要抓取的网址]]></item>
+				<item id="collect_sucsses"><![CDATA[抓取成功]]></item>
+				<item id="advance_set"><![CDATA[高级设置]]></item>
+				<item id="word_replace"><![CDATA[同义词替换]]></item>
+				<item id="word_replace_tip"><![CDATA[每行一对同义词，"="分隔表示双向替换，"->"分隔表示单向替换<br>如：<br>高兴=快乐<br>高兴->快乐]]></item>
+				<item id="advsubmit"><![CDATA[提交]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+	</item>
+</root>

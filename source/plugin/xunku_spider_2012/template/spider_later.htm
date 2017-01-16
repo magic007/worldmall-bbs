@@ -1,0 +1,302 @@
+<table class="tb tb2 " id="tips">
+<tbody>
+<tr><th class="partition">{lang xunku_spider_2012:tishi}</th></tr>
+<tr>
+	<td class="tipsblock" s="1">
+	<ul id="tipslis">
+		<li>{lang xunku_spider_2012:later_tishi1}</li>
+	</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='spider_later'>
+<input type='hidden' name='step' value='2'>
+<div>
+
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:later_create_job}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:cmode_select_name}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<select name="cmode" onchange="changemode(this.value)">
+			<option value="1">{lang xunku_spider_2012:cmode_select_forum}</option>
+			<option value="2">{lang xunku_spider_2012:cmode_select_cms}</option>
+			<!--<option value="3">群组模式</option>-->
+		</select>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:cmode_select_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:later_source}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$select_site}
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:later_source_des}</td>
+</tr>
+</tbody>
+</table>
+<table class="tb tb2 nobdb" id='forum' style="">
+<tbody>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:later_bankuai}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$forum_str}
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_fid_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:snow_fenlei}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<select name="to_threadcate" id='to_threadcate'>
+			<option value='0'>{lang xunku_spider_2012:snow_fenlei_1}</option>
+		</select>
+		<div style='display:none'>
+<script>
+var typeinfo = {$type_info_json};
+</script>
+		</div>
+	</td>
+<script>
+function delOption(oSel){
+	if (oSel.selectedIndex>=0) {
+		oSel.remove(oSel.selectedIndex);
+		delOption(oSel);
+	}
+}
+function changetypes(fid) {
+	var fidtype = typeinfo[fid];
+	var cateSelect = document.getElementById('to_threadcate');
+	delOption(cateSelect);
+	for(var key in fidtype) {
+		cateSelect.add(new Option(fidtype[key], key));
+	}
+}
+</script>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:snow_fenlei_1}</td>
+</tr>
+</tbody></table>
+<table class="tb tb2 nobdb" id='cms' style="display:none">
+<tbody>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:cmode_select_cms_type}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$cms_str}
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:cmode_select_cms_type_des}</td>
+</tr>
+</tbody>
+</table>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:later_range}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="range_auto" id="range_auto" cols="50" class="tarea" style="height: 75px; "></textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:later_range_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:later_yue}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<select name="month">
+				<option value="*">*</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+		</select>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:later_yue_des}</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:later_week}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<select name="week">
+				<option value="*">*</option>
+				<option value="1">{lang xunku_spider_2012:later_week_1}</option>
+				<option value="2">{lang xunku_spider_2012:later_week_2}</option>
+				<option value="3">{lang xunku_spider_2012:later_week_3}</option>
+				<option value="4">{lang xunku_spider_2012:later_week_4}</option>
+				<option value="5">{lang xunku_spider_2012:later_week_5}</option>
+				<option value="6">{lang xunku_spider_2012:later_week_6}</option>
+				<option value="7">{lang xunku_spider_2012:later_week_7}</option>
+		</select>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:later_week_des}</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:later_ri}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<select name="day">
+				<option value="*">*</option>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+		</select>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:later_des}</td>
+</tr>
+</tbody></table>
+<script>
+function changemode(mode){
+	if(mode == 1) {
+		document.getElementById('forum').style.display = '';
+		document.getElementById('cms').style.display = 'none';
+		document.getElementById('cmode_select').value = '1';
+	}else if(mode == 2) {
+		document.getElementById('forum').style.display = 'none';
+		document.getElementById('cms').style.display = '';
+		document.getElementById('cmode_select').value = '2';
+	}
+}
+</script>
+
+</div>
+<input name='cmode_select' type="hidden" id='cmode_select' value = '1'>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+</form>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:later_list}
+<!--{if $xk_memberinfo['level']==2 }-->
+<span style="font-size:12px;padding-left:20px">
+<a href="$basename&pmod=spider_later&job=auto_now">[{lang xunku_spider_2012:auto_now}]</a>
+</span>
+<!--{/if}-->
+	  </th></tr>
+</tbody></table>
+<input name='cmode_select' type="hidden" id='cmode_select' value = '1'>
+<table class="tb tb2 ">
+<tbody>
+<tr class="header">
+	<th width='5%'>{lang xunku_spider_2012:later_list_num}</th>
+	<th width='15%'>{lang xunku_spider_2012:later_list_sourcename}</th>
+	<th width='15%'>{lang xunku_spider_2012:later_list_bankuai}</th>
+	<th>{lang xunku_spider_2012:later_list_url}</th>
+	<th width='15%'>{lang xunku_spider_2012:later_list_creattime}</th>
+	<th width='15%'>{lang xunku_spider_2012:later_list_lasttime}</th>
+	<th width='5%'>{lang xunku_spider_2012:later_list_statue}</th>
+	<th width='10%'>{lang xunku_spider_2012:later_list_action}</th>
+</tr>
+<!--{if $joblist }-->
+<!--{loop $joblist $key $val}-->
+<tr class="hover">
+	<td>{$val[id]}</td>
+	<td>{$source_info[$val[stype]][title]}</td>
+	<td class="td28">
+<!--{if $val[cmode]==1 }-->
+{$forum_arr[$val[fid]]}【bbs】
+<!--{else}-->
+{$cms_list_arr[$val[fid]][catname]}【cms】
+<!--{/if}-->
+	</td>
+	<td>{$val[url]}</td>
+	<td>{$val[create_date]}</td>
+	<td><span style="color:blue">{$val[last_run_date]}</span></td>
+	<td>
+<!--{if $val[if_open] }-->
+<span style="color:blue">{lang xunku_spider_2012:later_list_ok}</span>
+<!--{else}-->
+<span style="color:red">{lang xunku_spider_2012:later_list_closed}</span>
+<!--{/if}-->
+	</td>
+	<td>
+<a href="$basename&pmod=spider_later&job=stop&id={$val[id]}">{lang xunku_spider_2012:later_list_close}</a> | <a href="$basename&pmod=spider_later&job=start&id={$val[id]}">{lang xunku_spider_2012:later_list_open}</a> | <a href="$basename&pmod=spider_later&job=del&id={$val[id]}">{lang xunku_spider_2012:later_list_del}</a>
+	</td>
+</tr>
+<!--{/loop}-->
+<!--{/if}-->
+</tbody></table>
+</div>

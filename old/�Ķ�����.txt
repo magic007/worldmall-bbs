@@ -1,0 +1,3 @@
+在index.php第二行添加：
+header('Location: forumdisplay.php?fid=1234');
+exit();

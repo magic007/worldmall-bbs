@@ -1,0 +1,143 @@
+@charset "utf-8";
+body{background:#fff;color:#333;font-family:Verdana,Arial,Helvetica,sans-serif;font-size:12px;line-height:16px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,img{margin:0;padding:0;list-style:none outside none;}
+fieldset,img{border:none;margin:0;padding:0;vertical-align:top;}
+
+em{font-style:normal;}
+table,td{border:0;padding:0;border-collapse:collapse; border-spacing:0;}
+.l,.img-detail,.registered .row{float:left;}
+.r,.trade span{float:right;}
+.f12{font-size:12px;}
+.f14{font-size:14px;}
+.f16{font-size:16px;font-weight:bold;}
+.box{border:1px solid #d5d5d5;}
+.none{border:none !important;}
+.bgnone{background:none !important;}
+button {cursor:pointer;}
+input[type="text"],input[type="password"]{height:19px;border:1px solid #ddd;}
+input,textarea,select{vertical-align:middle;font-size:12px;line-height:21px;margin:0 5px;}
+.bor-none{border:none !important;}
+.m-top10{margin-top:10px !important;}
+.m-bot10{margin-bottom:10px !important;}
+.m-left20{margin-left:20px;}
+.m-left100{margin-left: 100px;}
+.m-right50{margin-right:50px !important;}
+.margin0{margin:0 !important;}
+.padding0{padding:0 !important;}
+td.wordL,.wordL{text-align:left !important;}
+.text_c{text-align:center;}
+.po_re{position:relative;}
+
+
+/******************超文本链接*****************/
+h1,h2,h3,h4{font-size:14px;}
+.b {font-weight: bold;}
+.c00{color:#c00;}
+.a10000{color:#a10000;}
+.orange{color:#f50;}
+.c789{color:#789;}
+.gray{color:#83888b;}
+.blue{color:#36c;}
+a:link,a:visited{color:#333;text-decoration:none;}a:hover{color:#c00;text-decoration:underline;cursor:pointer;}
+a.black:link,a.black:visited{color:#123;}a.black:hover{color:#c00;}
+a.white:link,a.white:visited{color:#fff;}a.white:hover{color:#fff;}
+a.cred,a.cred:link,a.cred:visited{color:#a10000 !important;}a.cred:hover{color:#a10000;}
+a.blue:link,a.blue:visited{color:#36c;}a.blue:hover{color:#c00;}
+a.gray:link,a.gray:visited{color:#83888b !important;}a.gray:hover{color:#c00 !important;}
+a.underline:link,a.underline:visited{text-decoration:underline;}a.underline:hover{text-decoration:underline;}
+
+
+/******************主体*****************/
+.main{width:960px;margin:0 auto;}
+.main:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.sidebarA{width:755px;float:left;margin-top:20px;}
+.sidebarB{width:230px;float:right;margin-top:20px;}
+.col-main{width:800px;float:right;}
+.col-sub{width:190px;float:left;}
+.w192{width:192px;}
+.w232{width:232px;}
+.w285{width:285px;float:left;}
+.w768{width:768px;overflow:hidden;float:left;}
+.h250{height:250px;}
+input.text,input.text1{border: 1px solid #ccc;background: #fff url(../images/text.gif) repeat-x;color:#666;font-size:14px;height:24px;line-height:24px;padding:0 5px;}
+.tips {background:#FFFFE5;border:1px solid #FFCA7A;color:#333;padding:5px 10px;}
+
+/*按钮*/
+a.buy,a:visited.buy,a:hover.buy,a.collection,.a.collection:visited{width:50px;height:21px;line-height:21px;display:inline-block;text-align:center;text-decoration:none;margin:0 5px;}
+a.buy,a:visited.buy,a:hover.buy{background:url(../images/ico.png) -73px -609px;color:#fff !important;}
+a.collection,.a.collection:visited{background:url(../images/ico.png) -103px -777px;margin:5px !important;}
+.btn{width:110px;height:30px;background:url(../images/ico.png) 0 -569px;border:none;color:#fff;}
+
+/*标题*/
+#cat-list{width:188px;border:2px #345 solid;}
+#cat-list h4{color:#fff;font-size:16px;height:28px;background:#345;line-height:28px;margin-bottom:5px;padding-left:10px;}
+#cat-list h4 a{color:#fff;text-decoration:none;}
+
+/* 回到顶部 */
+.go-top {background:url(../images/ico.png) no-repeat 0 -464px;cursor: pointer;height:110px;width: 23px;position: fixed;_position: absolute;}
+
+/*输入框*/
+.search_type{position:relative;float:left;}
+.pitch_up{background:url(../images/ico.png) -35px -841px;border:1px solid #bbb;cursor:pointer;height:19px;line-height:19px;overflow:hidden;padding:0 5px;position:relative;}
+.pitch_up span{background:url(../images/ico.png) -176px -481px;border-left:1px solid #bbb;display:inline-block;margin:0 5px 0 20px;position:absolute;right:0;top:0;text-indent:-9999em;width:14px;}
+.toselect{background:#fff;border:1px solid #bbb;border-top:none;line-height:23px;position:absolute;z-index:5;}
+.toselect li{cursor:pointer;}
+.toselect a{padding-left:5px;display:block;}
+.toselect a:hover{background:#eee;color:#333;text-decoration:none;}
+
+/*无内容是居中*/
+.member_no_records {border:1px solid #ccc;border-top:none;color:#666;font-size:14px;font-weight:bold;padding:50px 0;text-align:center;}
+
+
+/*清除浮动*/
+.clear{clear:both;height:0px;}
+.clearfix {zoom:1;clear:both;}
+.clearfix:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+
+/*广告*/
+.ad{margin-top:10px;}
+
+/*当前位置*/
+.location a,.keyword a:visited,.crumb a{margin:0 5px;}
+.crumb{width:1000px;height:30px;line-height:30px;background:#fdf0dc;margin:10px auto 0;text-align:center;clear:both;}
+.location{width:1000px;height:30px;line-height:30px;margin:0 auto 10px;clear:both;}
+/*翻页*/
+.page{float:right;clear:both;margin-top:40px;}
+.page a,.page a:visited{border:1px solid #ddd;color:#333 !important;cursor:pointer;height:19px;line-height:19px;display:inline-block;overflow:hidden;margin:0 5px;padding:0 5px;vertical-align:top;}
+.page .current,.page .current:visited,.page a:hover,a.page_hover,a:visited.page_hover{background:#e00e12;color:#fff !important;text-decoration:none;}
+.page input{height:17px;border:1px solid #999;margin:0 5px;width:30px;vertical-align:top;}
+.page button{width:41px;height:21px;background:url(../images/ico.png) -81px -457px;border:1px solid #ddd;line-height:19px;margin:0 5px;}
+
+/*最近浏览过*/
+.history{width:1000px;margin:10px auto 0;border:1px solid #d6d6d6;overflow:hidden;zoom:1;padding-bottom:10px;}
+.history-title{height:28px;line-height:28px;background:url(../images/headfooter.png);border-bottom:1px solid #d6d6d6;color:#a10000;font-weight:bold;padding-left:10px;}
+.bt_left a,.bt_right a{background:url(../images/ico.png) 0 -649px;display:inline-block;height:100px;margin-top:50px;width:21px;cursor:pointer;float:left;text-indent:-9999px;}
+.bt_left a:hover{background:url(../images/ico.png) -21px -649px;}
+.bt_right a{background:url(../images/ico.png) -42px -649px;float:right;}
+.bt_right a:hover{background:url(../images/ico.png) -63px -649px;}
+.history li{width:100px;overflow:hidden;margin:0 0 0 50px;float:left;display:inline;padding:20px 0;}
+.history h4{font-weight:normal;font-size:12px;margin-bottom:3px;}
+a.wholesale-price,a.wholesale-price:visited{background:#888;display:inline-block;color:#fff;height:16px;line-height:14px;*line-height:18px;overflow:hidden;padding:1px 5px;}
+a.wholesale-price:hover{background:#D10009;color:#fff;text-decoration:none;}
+
+.scrollbar{border-bottom:1px solid #a10000;clear:both;height:10px;margin:0 30px;}
+.scrollbar strong{background:url(../images/ico.png) 0 -750px;display:inline-block;width:182px;height:17px;text-indent:-9999px;float:left;}
+
+/*切换到大图*/
+.grid li{width:180px;margin:15px 0 15px 16px;float:left;display:inline;}
+.grid h1{font-weight:normal;font-size:12px;}
+.grid li img{width:178px;height:178px;border:1px solid #e6e6e6;}
+.grid li a img:hover{width:176px;height:176px;border:1px solid #a10000;padding:1px;}
+.grid li h3{font-size:12px;font-weight:normal;margin:5px 0;height:40px;overflow:hidden;line-height:20px;}
+.grid li p{height:16px;margin:3px 0;color:#919191;}
+.line-through{text-decoration:line-through;color:#7c8d9f;}
+.line-through strong{color:#030303;}
+.trade em a,.trade em a:visited,.trade em a:hover{background:#a6a6a6;color:#fff;text-decoration:none;}
+.trade em{float:left;color:#c00;}
+.stock:link,.stock:visited,.gray_btn,.gray_btn:visited{display:inline-block;height:21px;line-height:21px;text-align:center;text-decoration:none;margin:5px 0;width:76px;}
+.stock:link,.stock:visited{background:url(../images/ico.png) 0 -457px;color:#fff;}
+.gray_btn{background:url(../images/gray_btn.png);border:none;color:#333;}
+.collection,.collection:visited{width:50px;height:21px;line-height:21px;text-align:center;background:url(../images/ico.png) -103px -777px;display:inline-block;margin:5px 0 5px 5px;}
+
+/*隐藏元素*/
+.hide{display:none;}

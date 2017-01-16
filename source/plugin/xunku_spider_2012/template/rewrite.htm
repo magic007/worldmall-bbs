@@ -1,0 +1,127 @@
+<table class="tb tb2 " id="tips">
+<tbody>
+<tr><th class="partition">{lang xunku_spider_2012:tishi}</th></tr>
+<tr>
+	<td class="tipsblock" s="1">
+	<ul id="tipslis">
+		<li>{lang xunku_spider_2012:rewrite_tishi}</li>
+	</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='rewrite'>
+<input type='hidden' name='step' value='2'>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:rewrite_title}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_tongyi_1}:
+		<span style="font-size:12px;padding-left:5px">
+			<a href="$basename&pmod=rewrite&job=input">[{lang xunku_spider_2012:rewrite_tongyi_2}]</a>
+		</span>
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_replaces" id="source_replaces" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_replaces]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_tongyi_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_title_head}: 
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_title_header" id="source_title_header" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_title_header]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_title_head_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_title_tail}: 
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_title_tail" id="source_title_tail" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_title_tail]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_title_tail_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_thread_head}: 
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_thread_header" id="source_thread_header" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_thread_header]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_thread_head_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_thread_tail}: 
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_thread_tail" id="source_thread_tail" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_thread_tail]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_thread_tail_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_thread_hidden}: 
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_thread_hidden_text" id="source_thread_hidden_text" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_thread_hidden_text]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_thread_hidden_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_post_head}: 
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_post_header" id="source_post_header" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_post_header]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_post_head_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_post_tail}: 
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_post_tail" id="source_post_tail" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_post_tail]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_post_tail_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:rewrite_post_hidden}: 
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="source_post_hidden_text" id="source_post_hidden_text" cols="50" class="tarea" style="height: 75px; ">{$xk_rewrite[source_post_hidden_text]}</textarea>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:rewrite_post_hidden_des}</td>
+</tr>
+</tbody></table>
+</div>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+</form>

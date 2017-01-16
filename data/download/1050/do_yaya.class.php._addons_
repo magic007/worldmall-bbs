@@ -1,0 +1,62 @@
+<?php
+
+/**
+ *      [Discuz!] (C)2001-2099 Comsenz Inc.
+ *      This is NOT a freeware, use is subject to license terms
+ *
+ *      $Id: myrepeats.class.php 23901 2011-08-15 10:08:59Z monkey $
+ */
+
+if(!defined('IN_DISCUZ')) {
+	exit('Access Denied');
+}
+//print_r ($_G['setting']);
+
+
+class plugin_do_yaya {
+	var $value = array();
+	function plugin_do_yaya() {
+		global $_G;
+		$returns = '';
+        $do_yayas=$_G['cache']['plugin']['do_yaya'];
+		if(getcookie('do_topen') == 1 || getcookie('do_topen') != -1 ) //ÆôÓÃ×´Ì¬ 
+		{
+		$disopen = '';
+		$disclose = ' style="display:none;" ';
+		} 
+		else 
+		{
+		$disclose = '';
+		$disopen = ' style="display:none;" ';
+		}
+		
+	if($_G['uid'])
+		
+	   {
+
+		$do_newpm = $_G['member']['newpm'] ?  'do_news' : '';
+     	$do_newtx = $_G['member']['newprompt'] ? 'do_news' : '';
+     	$do_newrw = $_G['cookie']['taskdoing_'.$_G['uid']] ? 'do_news' : '';
+     	$do_qqyes = $_G['member']['conisbind']  ? 'do_news' : '';
+     	$do_newren = $_G['member']['credits'] > $do_yayas['do_shu'] ? 'do_news' : '';
+    	$do_emall = $_G['member']['emailstatus'] ? 'do_news' : '';
+        $do_avatar = $_G['member']['avatarstatus'] ? 'do_news' : '';
+		$do_notenum = $_G['member']['newprompt'] ? "({$_G['member']['newprompt']})" : '';
+    	$do_newring = $_G['member']['newpm'] || $_G['member']['newprompt'] ? '<embed src="source/plugin/do_yaya/template/yaya.swf" wmode="transparent" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1" height="1"></embed>' : '';
+	    
+	   }
+	else
+	{
+		$do_moring = '<embed src="source/plugin/do_yaya/template/yaya.swf" wmode="transparent" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1" height="1"></embed>';
+	}
+	
+		include 'template/do_yaya.htm';
+		$this->value['global_footer'] = $returns;
+	}
+	function global_footer() 
+	{
+	return $this->value['global_footer'];
+	}
+
+}
+?>

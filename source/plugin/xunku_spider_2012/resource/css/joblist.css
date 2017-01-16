@@ -1,0 +1,24 @@
+.vote .vote_numline {
+	width: 300px;
+	vertical-align: middle;
+}
+.perCent, .perValue, .perValue span {
+	background: url('../img/vote.png') repeat-x;
+}
+.perCent {
+	background-color: #F0F0F0;
+	height: 12px;
+	overflow: hidden;
+	color: #587F02;
+	position: relative;
+}
+.perbgA {
+	background-position: right -48px;
+}
+.perValue {
+	float: left;
+	height: 100%;
+	background-color: #006AD7;
+	overflow: hidden;
+	background-position: right -24px;
+}

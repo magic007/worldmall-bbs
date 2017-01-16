@@ -1,0 +1,229 @@
+<div id="head">
+	<div id="head_t">
+		<div class="head_t">
+			<!--{eval $mnid = getcurrentnav();}-->
+			<ul>
+				<a href="javascript:;" id="loginc" class="signin" onfocus="this.blur()">我的信息</a>
+				<ul class="r">
+					<a href="home.php?mod=space&do=pm"id="pm_ntc"{if $_G[member][newpm]} class="ypm"{/if}><!--{if $_G[member][newpm]}-->{lang pm_center}<!--{/if}--></a>
+					<a href="home.php?mod=space&do=notice" id="myprompt"{if $_G[member][newprompt]} class="ytx"{/if}><!--{if $_G[member][newprompt]}-->{lang remind}($_G[member][newprompt])<!--{/if}--></a><span id="myprompt_check"></span>
+					<a href="javascript:;" id="share" onMouseOver="showMenu({'ctrlid':'share','pos':'34!','ctrlclass':'a','duration':2});">关注我们</a>
+					<!--{hook/global_usernav_extra1}-->
+				</ul>
+				<li class="home"><a href="index.php" hidefocus="true" title="home"></a></li>
+				<li><a href="javascript:;"  onclick="setHomepage('http://www.yesmmc.com/');">设为首页</a></li>
+				<li><a href="http://www.yesmmc.com/"  onclick="addFavorite(this.href, 'YesMMC 年轻态生活社区');return false;">收藏本站</a></li>
+				<li id="contact" onMouseOver="showMenu({'ctrlid':'contact','pos':'34!','ctrlclass':'a','duration':2});"><a href="javascript:;">联系我们</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="contact_menu" class="contpop" style="display: none;">
+	<div>
+		<h3 class="cl">模板购买与定制咨询<br><font class="h">免费用户请移步 <a href="forum-53-1.html">投诉建议</a> 发帖咨询。</font></h3>
+		<ul>
+			<p class="q"><em>销售：</em>286236066</p>
+			<p class="q"><em>技术：</em>286236066</p>
+			<p class="m"><em>Msn：</em>286236066@qq.com</p>
+			<p class="d"><em>电话：</em>13692301591<em class="j">(短信预约)</em></p>
+		</ul>
+		<h3 class="cl">官方QQ群<br><font class="h">加入YesMMC官方Q群，及时了解最新动态。</font></h3>
+		<ul>
+			<p class="qq"><em>官方①群：</em>16193130 <a href="http://qun.qq.com/#jointhegroup/gid/16193130" target="_blank" title="点击加入">加入</a></p>
+			<p class="qq"><em>官方②群：</em>16193130 <a href="http://qun.qq.com/#jointhegroup/gid/16193130" target="_blank" title="点击加入">加入</a></p>
+		</ul>
+	</div>
+</div>
+
+<div id="share_menu" class="shpop" style="display: none;">
+	<h3>转播此页到：</h3>
+	<ul>
+		<a href="javascript:void(0)" class="xl" onclick="xl();return false;">新浪微博</a>
+		<a href="javascript:void(0)" class="tx" onclick="tx();return false;">腾讯微博</a>	
+		<a href="javascript:void(0)" class="wy" onclick="wy();return false;">网易微博</a>	
+		<a href="javascript:void(0)" class="qq" onclick="qq();return false;">QQ空间</a>
+		<a href="javascript:void(0)" class="tjh" onclick="tjh();return false;">淘江湖</a>
+		<a href="javascript:void(0)" class="rr" onclick="rr();return false;">人人网</a>
+		<a href="javascript:void(0)" class="fa" onclick="fa();return false;">Facebook</a>	
+		<a href="javascript:void(0)" class="tw" onclick="tw();return false;">Twitter</a>
+	</ul>
+	<h3>官方微博：</h3>
+	<ul><div><a href="http://t.qq.com/guestop" class="tx" target="_blank">YesMMC</a></div></ul>
+	<div class="srss cl">
+		<h3><span>第一时间获取更新动态</span></h3>
+		<form method="post" target="_blank" action="http://list.qq.com/cgi-bin/qf_compose_send">
+		<input type="hidden" value="qf_booked_feedback" name="t">
+		<input type="hidden" value="3878b8615201d775696efa9e356afac4a09e141d18069b21" name="id">
+		<input type="text" name="to" class="btsr" value="You E-mail" onblur="if (this.value == &#39;&#39;) {this.value = &#39;You E-mail&#39;;}" onfocus="if (this.value == &#39;You E-mail&#39;) {this.value = &#39;&#39;;}" id="to">
+		<input type="submit" value="点击订阅" class="btan">
+		</form>
+	</div>
+</div>
+
+<div class="wp" style="position:relative;z-index:70;">
+	<div id="mys" style="display: none; ">
+		<div class="mysn">
+			<div class="mysnb">
+				<div class="ums">
+					<div class="avt"><div class="avt y"><a href="home.php?mod=space&uid=$_G[uid]"><!--{avatar($_G[uid],small)}--></a></div></a></div>
+					<div class="nam">
+						<strong class="vwmy{if $_G['setting']['connect']['allow'] && $_G[member][conisbind]} qq{/if}"><a href="home.php?mod=space&uid=$_G[uid]" target="_blank" title="{lang visit_my_space}">{$_G[member][username]}</a></strong>
+						<p class="j"><a href="home.php?mod=spacecp&ac=usergroup"{if $upgradecredit !== 'false'} id="g_upmine" )"{/if}>$_G[group][grouptitle]</a></p>
+						<p class="j">查看<a href="home.php?mod=spacecp&ac=credit&showcredit=1" id="extcreditmenu"{if !$_G[setting][bbclosed]} onmouseover="delayShow(this, showCreditmenu);" {/if}>{lang credits}: $_G[member][credits]</a></p>
+					</div>
+				</div>
+				<div class="ums2">
+					<!--{if $_G['group']['allowinvisible']}-->
+					<span id="loginstatus">
+					<a id="loginstatusid" href="member.php?mod=switchstatus" title="{lang login_switch_invisible_mode}" onClick="ajaxget(this.href, 'loginstatus');return false;" class="xi2"></a>
+					</span>
+					<!--{/if}-->
+					<a href="home.php?mod=spacecp">{lang setup}</a>
+					<a href="home.php?mod=space&do=pm" id="pm_ntc"{if $_G[member][newpm]} class="new"{/if}>{lang pm_center}</a>
+					<a href="home.php?mod=space&do=notice" id="myprompt"{if $_G[member][newprompt]} class="new"{/if}>{lang remind}<!--{if $_G[member][newprompt]}-->($_G[member][newprompt])<!--{/if}--></a><span id="myprompt_check"></span>
+					<!--{if $_G['setting']['taskon'] && !empty($_G['cookie']['taskdoing_'.$_G['uid']])}--><a href="home.php?mod=task&item=doing" id="task_ntc" class="new">{lang task_doing}</a><!--{/if}-->
+					<!--{if ($_G['group']['allowmanagearticle'] || $_G['group']['allowpostarticle'] || $_G['group']['allowdiy'] || getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3))}-->
+						<a href="portal.php?mod=portalcp"><!--{if $_G['setting']['portalstatus'] }-->{lang portal_manage}<!--{else}-->{lang portal_block_manage}<!--{/if}--></a>
+					<!--{/if}-->
+					<!--{if $_G['uid'] && $_G['group']['radminid'] > 1}-->
+						<a href="forum.php?mod=modcp&fid=$_G[fid]" target="_blank">{lang forum_manager}</a>
+					<!--{/if}-->
+					<!--{if $_G['uid'] && getstatus($_G['member']['allowadmincp'], 1)}-->
+						<a href="admin.php" target="_blank">{lang admincp}</a>
+						<a href="javascript:openDiy();" title="{lang open_diy}">DIY面板</a>
+			
+					<!--{/if}-->
+			
+					<!--{hook/global_usernav_extra2}-->
+					<a href="member.php?mod=logging&action=logout&formhash={FORMHASH}" class="lot" >{lang logout}</a>
+				</div>
+				<div class="adm"></div>
+				<div class="ums3">
+					<!--{loop $_G['setting']['mynavs'] $nav}-->
+						<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->
+							$nav[code]
+						<!--{/if}-->
+					<!--{/loop}-->
+				</div>
+			</div>
+		</div>
+	</div>  
+</div>
+
+<div id="head_a">
+	<div class="head_a">
+		<!--{eval $mnid = getcurrentnav();}-->
+		<h2><!--{if !isset($_G['setting']['navlogos'][$mnid])}--><a href="./" title="$_G['setting']['bbname']">{$_G['style']['boardlogo']}</a><!--{else}-->$_G['setting']['navlogos'][$mnid]<!--{/if}--></h2>
+	</div>
+	<div class="head_menu">
+	<!--{eval $mnid = getcurrentnav();}-->
+		<div class="wp">
+			<div id="nv">
+				<ul>
+					<!--{loop $_G['setting']['navs'] $nav}-->
+						<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}--><li {if $mnid == $nav[navid]}class="a" {/if}$nav[nav]></li><!--{/if}-->
+					<!--{/loop}-->
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="head">
+<div id="head_b">
+<div class="head_b">
+<div class="mu_a">
+<!--{if $_G['setting']['subnavs']}-->
+	<!--{loop $_G[setting][subnavs] $navid $subnav}-->
+		<!--{if $_G['setting']['navsubhover'] || $mnid == $navid}-->
+		<ul class="cl {if $mnid == $navid}current{/if}" id="snav_$navid" style="display:{if $mnid != $navid}none{/if}">
+		$subnav
+		</ul>
+		<!--{/if}-->
+	<!--{/loop}-->
+<!--{/if}-->
+</div>
+
+<div class="r">
+<div id="scs" class="cl" onClick="showMenu({'ctrlid':'scs','ctrlclass':'a','duration':2})">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($(&#39;scbar_txt&#39;))" action="search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="forum">
+<input type="hidden" name="formhash" value="ecae1a97">
+<input type="hidden" name="srchtype" value="title">
+<input type="hidden" name="srhfid" value="">
+<input type="hidden" name="srhlocality" value="forum::index">			
+        <table cellspacing="0" cellpadding="0">
+<tbody><tr>
+                   
+<td><input type="text" name="srchtxt" id="scbar_txt" class="px pxsr xg1" value="请输入搜索内容" autocomplete="off"></td>
+ <td><button type="submit" name="searchsubmit" id="scbar_btn" value="true" class="xw1 hsea"> </button></td>
+</tr>
+                
+</tbody></table>
+ 
+</form>
+ 
+ 
+</div>
+    <div id="scs_menu" style="display: none;" class="scspy">
+ 
+<div id="scs_t">
+<div class="scs_t">
+<a href="javascript:;" id="scbar_type" class="px pxxl">帖子</a>
+<ul id="scbar_type_menu" class="sx"><li><a href="javascript:;" rel="forum" class="curtype">帖子</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<script type="text/javascript"> 
+initSearchmenu('scbar');
+</script>
+</div>
+						<!--{if $_G['setting']['srchhotkeywords']}-->
+<strong class="xw1 cl"><span><a href="search.php?mod=forum&adv=yes" target="_blank">高级搜索</a></span>热搜</strong>
+							<!--{loop $_G['setting']['srchhotkeywords'] $val}-->
+								<!--{if $val=trim($val)}-->
+									<!--{eval $valenc=rawurlencode($val);}-->
+									<!--{block srchhotkeywords[]}--><a href="search.php?mod=forum&srchtxt=$valenc&formhash={FORMHASH}&searchsubmit=true&source=hotsearch" target="_blank" class="xi2">$val</a><!--{/block}-->
+								<!--{/if}-->
+							<!--{/loop}-->
+							<!--{echo implode('', $srchhotkeywords);}-->
+						<!--{/if}-->
+</div>
+ 
+ 
+</div>
+ 
+ 
+</div>
+ 
+ 
+</div>
+</div>
+</div>
+ 
+ 
+    <div id="nv_e">
+				<!--{if !empty($_G['setting']['plugins']['jsmenu'])}-->
+					<ul class="p_pop h_pop" id="plugin_menu" style="display: none">
+					<!--{loop $_G['setting']['plugins']['jsmenu'] $module}-->
+						 <!--{if !$module['adminid'] || ($module['adminid'] && $_G['adminid'] > 0 && $module['adminid'] >= $_G['adminid'])}-->
+						 <li>$module[url]</li>
+						 <!--{/if}-->
+					<!--{/loop}-->
+					</ul>
+				<!--{/if}-->
+				$_G[setting][menunavs]
+ 
+			</div>
+		</div>
+		<!--{if !IS_ROBOT}-->
+			<!--{if $_G['uid'] && !empty($_G['style']['extstyle'])}-->
+				<div id="sslct_menu" class="cl p_pop" style="display: none;">
+					<!--{if !$_G[style][defaultextstyle]}--><span class="sslct_btn" onclick="extstyle('')" title="{lang default}"><i></i></span><!--{/if}-->
+					<!--{loop $_G['style']['extstyle'] $extstyle}-->
+						<span class="sslct_btn" onclick="extstyle('$extstyle[0]')" title="$extstyle[1]"><i style='background:$extstyle[2]'></i></span>
+					<!--{/loop}-->
+				</div>
+			<!--{/if}-->
+ 
+		<!--{/if}-->
+ 
+                </div>

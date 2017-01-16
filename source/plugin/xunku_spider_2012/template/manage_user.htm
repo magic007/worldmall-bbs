@@ -1,0 +1,168 @@
+<table class="tb tb2 " id="tips">
+<tbody>
+<tr><th class="partition">{lang xunku_spider_2012:tishi}</th></tr>
+<tr>
+	<td class="tipsblock" s="1">
+	<ul id="tipslis">
+		<li>{lang xunku_spider_2012:muser_tishi}</li>
+	</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<div>
+<!--{if $type == 'majia_face_multi' }-->
+<table class="tb tb2 nobdb">
+<tbody>
+<tr>
+	<th colspan="15" class="partition">{lang xunku_spider_2012:muser_face_process}<span style="font-size:12px;padding-left:20px">
+		<a href="$basename&pmod=manage_user">{lang xunku_spider_2012:muser_face_jump}</a></th>
+</tr>
+<tr>
+	<th>{lang xunku_spider_2012:muser_face_jindu}</th>
+	<th>{lang xunku_spider_2012:snow_joblist_opt}</th>
+</tr>
+<style>
+.vote .vote_numline {
+	width: 300px;
+	vertical-align: middle;
+}
+.perCent, .perValue, .perValue span {
+background: url('{$xk_config[resource_url]}img/vote.png') repeat-x;
+}
+.perCent {
+	background-color: #F0F0F0;
+	height: 12px;
+	overflow: hidden;
+	color: #587F02;
+	position: relative;
+}
+.perbgA {
+	background-position: right -48px;
+}
+.perValue {
+	float: left;
+	height: 100%;
+	background-color: #006AD7;
+	overflow: hidden;
+	background-position: right -24px;
+}
+</style>
+		<tr class="hover">
+			<td width="80%">
+				<div class="perCent vote_numline">
+					<div class="perValue perbgA" style="width:{$process}%;">
+						<span></span>
+					</div>
+				</div>
+				{$process}%</span>
+			</td>
+			<td><a href="$basename&pmod=manage_user">{lang xunku_spider_2012:snow_joblist_stop}</a></td>
+          </tr>
+</tbody>
+</table>
+<script>setTimeout("location.href='$basename&pmod=manage_user&type=majia_face_multi&page={$page}&face_min={$face_min}&face_max={$face_max}'",{$timeout})</script>
+<!--{else}-->
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='manage_user'>
+<input type='hidden' name='type' value='export_majia'>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:muser_majia_export}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:muser_majia_num}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input class="txt" id="majia_num" name="majia_num" value="100">
+	</td>
+	<td class="vtop rowform">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:muser_majia_des}" value="{lang xunku_spider_2012:muser_daochu}">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:muser_majia_des}</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<!--{if $majia_str }-->
+		<textarea rows="6" ondblclick="textareasize(this, 1)" onkeyup="textareasize(this, 0)" name="range_single" id="range_single" cols="80" class="tarea" style="height: 75px; ">{$majia_str}</textarea>
+		<!--{/if}-->
+	</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+<div>
+<div>
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='manage_user'>
+<input type='hidden' name='type' value='majia_face_multi'>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:muser_majia_face_mul}<span style="font-size:12px;padding-left:20px">
+		<a href="$basename&pmod=manage_user&type=faceku">[{lang xunku_spider_2012:muser_face_ku}]</a>
+	  </span></th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:msuer_majia_face_range}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<input name="face_min" value="0" style="width: 108px; margin-right: 5px;" type="text" class="txt">
+		~
+		<input name="face_max" value="100" style="width: 108px; margin-left: 5px;" type="text" class="txt">
+	</td>
+	<td class="vtop rowform">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:muser_majia_face_run}" value="{lang xunku_spider_2012:muser_majia_face_run}">
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:msuer_majia_face_des}</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+<div>
+<form action="{$basename}" method="post">
+<input type='hidden' name='pmod' value='manage_user'>
+<input type='hidden' name='job' value='muldel'>
+<input type='hidden' name='step' value='2'>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:muser_list}</th></tr>
+</tbody></table>
+<table class="tb tb2 ">
+<tbody>
+<tr class="header">
+	<th></th>
+	<th>{lang xunku_spider_2012:muser_uid}</th>
+	<th>{lang xunku_spider_2012:muser_name}</th>
+	<th>{lang xunku_spider_2012:muser_email}</th>
+	<th>{lang xunku_spider_2012:muser_register_time}</th>
+	<th>{lang xunku_spider_2012:muser_tpc}</th>
+	<th>{lang xunku_spider_2012:muser_post}</th>
+	<th>{lang xunku_spider_2012:muser_action}</th>
+</tr>
+<!--{if $memberlist }-->
+<!--{loop $memberlist $key $val}-->
+<tr class="hover">
+	<td><input class="checkbox" type="checkbox" name="uidarray[]" value="{$val[uid]}"></td>
+	<td>{$val[uid]}</td>
+	<td><a href="home.php?mod=space&uid={$val[uid]}&do=profile" target="_blank">{$val[username]}</a></td>
+	<td class="td28">{$val[email]}</td>
+	<td>{$val[regdate]}</td>
+	<td>{$val[threads]}</td>
+	<td><span style="color:blue">{$val[posts]}</span></td>
+	<td><a href="$basename&pmod=manage_user&id={$val[uid]}&type=majia_face_single">{lang xunku_spider_2012:muser_face_change}</a> | <a href="$basename&pmod=manage_user&id={$val[uid]}&step=2">{lang xunku_spider_2012:muser_del}</a></td>
+</tr>
+<!--{/loop}-->
+<!--{/if}-->
+<tr><td class="td25" colspan="7"><input name="chkall" id="chkall" type="checkbox" class="checkbox" onclick="checkAll('prefix', this.form, 'uidarray', 'chkall')"><label for="chkall"></label>{lang xunku_spider_2012:quanxuan}</td></tr>
+</tbody></table>
+<div class="fixsel">
+	<input type="submit" class="btn" id="submit" name="submit" title="{lang xunku_spider_2012:submit_auto}" value="{lang xunku_spider_2012:submit_auto_text}">
+</div>
+</form>
+</div>
+<div class="cuspages left">{$multipage}</div>
+<!--{/if}-->

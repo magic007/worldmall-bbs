@@ -1,0 +1,178 @@
+<table class="tb tb2 " id="tips">
+<tbody>
+<tr><th class="partition">{lang xunku_spider_2012:account_des}</th></tr>
+<tr>
+	<td class="tipsblock" s="1">
+	<ul id="tipslis">
+		<li>{lang xunku_spider_2012:account_des_1}</li>
+		<li>{lang xunku_spider_2012:account_des_2}</li>
+		<li>{lang xunku_spider_2012:account_des_4}</li>
+		<li>{lang xunku_spider_2012:account_des_3}</li>
+	</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:account_title_1}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:account_zhanghao}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		{$xk_publickey}
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:account_zhanghao_des}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:account_jibie}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<span style="color:red">{$xk_memberinfo[level_title]}</span>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:account_jibie_des}:</td>
+</tr>
+<!--{if $xk_memberinfo['openlink'] }-->
+<!--{if !$xk_memberinfo['level'] }-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:account_caozuo}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<a href="http://www.ixunku.com/buy.php?pkey={$xk_publickey}" target="_blank"><img src="http://www.ixunku.com/images/uprun.gif"></a>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:account_caozuo_des}</td>
+</tr>
+<!--{else}-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:account_caozuo}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<a href="http://www.ixunku.com/buy.php?pkey={$xk_publickey}" target="_blank"><img src="http://www.ixunku.com/images/xurun.gif"></a>
+		<span style="font-size:12px;color:green;margin-left:10px">{lang xunku_spider_2012:account_caozuo_line}[{$xk_memberinfo[buyline]}]</span>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:account_caozuo_des}</td>
+</tr>
+<!--{/if}-->
+<!--{/if}-->
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:account_used}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+<!--{if $network_avaliable}-->
+		<span style="color:blue">{lang xunku_spider_2012:account_used_ok}</span>
+<!--{else}-->
+		<span style="color:red">{lang xunku_spider_2012:account_used_error}</span>
+<!--{/if}-->
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:account_used_des}</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr><th colspan="15" class="partition">{lang xunku_spider_2012:account_title_2}</th></tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:account_user_num}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<span style="color:#333333;">{$userall}</span>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:account_user_num}</td>
+</tr>
+<tr>
+	<td colspan="2" class="td27" s="1">
+		{lang xunku_spider_2012:account_thread_post_num}:
+	</td>
+</tr>
+<tr class="noborder">
+	<td class="vtop rowform">
+		<ul class="dblist" onmouseover="altStyle(this);">
+			<li style="width: 50%;">{lang xunku_spider_2012:account_thread_num}:{$threadall}</li>
+			<li>{lang xunku_spider_2012:account_post_num}:{$postall}</li>
+		</ul>
+	</td>
+	<td class="vtop tips2" s="1">{lang xunku_spider_2012:account_thread_post_num}</td>
+</tr>
+</tbody></table>
+<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="{$xk_config[resource_url]}js/excanvas.js"></script><![endif]-->
+
+<link rel="stylesheet" type="text/css" href="{$xk_config[resource_url]}css/jqplot/jquery.jqplot.css" />
+
+<!-- BEGIN: load jquery -->
+<script language="javascript" type="text/javascript" src="{$xk_config[resource_url]}js/jquery-1.4.4.min.js"></script>
+<!-- END: load jquery -->
+
+<!-- BEGIN: load jqplot -->
+<script language="javascript" type="text/javascript" src="{$xk_config[resource_url]}js/jqplot/jquery.jqplot.js"></script>
+<script language="javascript" type="text/javascript" src="{$xk_config[resource_url]}js/jqplot/jqplot.dateAxisRenderer.js"></script>
+<script language="javascript" type="text/javascript" src="{$xk_config[resource_url]}js/jqplot/jqplot.barRenderer.js"></script>
+<script language="javascript" type="text/javascript" src="{$xk_config[resource_url]}js/jqplot/jqplot.categoryAxisRenderer.js"></script>
+<style type="text/css" media="screen">
+.jqplot-axis {
+  font-size: 0.85em;
+}
+</style>
+<script type="text/javascript" language="javascript">
+$(document).ready(function(){
+	$.jqplot.config.enablePlugins = true;
+	s1 = {$thread_statis};
+	s2 = {$post_statis};
+	s3 = {$user_statis};
+
+
+	ticks = [1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10 ,11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, '31 »’'];
+
+	plot2 = $.jqplot('chart1', [s1, s2, s3], {
+		title: '<b>{lang xunku_spider_2012:account_tongji_anyu}({$current_month}){lang xunku_spider_2012:account_tongji_tu}</b>',
+		seriesDefaults:{},
+		legend: {show:true, location: 'nw'},
+		series:[
+			{showLabel:true,label:'{lang xunku_spider_2012:account_tongji_thread}'},
+			{showLabel:true,label:'{lang xunku_spider_2012:account_tongji_post}'},
+			{showLabel:true,label:'{lang xunku_spider_2012:account_tongji_user}'},
+		  ],
+		axes:{xaxis:{renderer:$.jqplot.CategoryAxisRenderer, ticks:ticks}, yaxis:{min:0, max:{$max_num}, numberTicks:6}}
+	});
+
+});
+</script>
+<div id="chart1" style="width:100%; height:300px;margin-top:5px;"></div>
+<table class="tb tb2 nobdb">
+<tbody>
+<tr>
+	<td class="vtop rowform" style="width: 100%">
+		<ul onmouseover="altStyle(this);">
+			<li>{lang xunku_spider_2012:account_tongji_cha}</li>
+<!--{loop array('1','2','3','4','5','6','7','8','9','10','11','12') $val}-->
+	<!--{if $val == $month}-->
+			<li class="checked" style="margin-left:20px;font-weight:bold"><a href="{$basename}&month={$val}">{$val}{lang xunku_spider_2012:account_tongji_yue}</a></li>
+	<!--{else}-->
+			<li style="margin-left:25px"><a href="{$basename}&month={$val}">{$val}{lang xunku_spider_2012:account_tongji_yue}</a></li>
+	<!--{/if}-->
+<!--{/loop}-->
+		</ul>
+	</td>
+</tr>
+</tbody>
+</table>
+</div>

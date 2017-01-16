@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Addon MD5]]></item>
+	<item id="ID"><![CDATA[longsun_collect.plugin]]></item>
+	<item id="SN"><![CDATA[2013022209SynnMCNmy1]]></item>
+	<item id="RevisionID"><![CDATA[5822]]></item>
+	<item id="RevisionDateline"><![CDATA[1350635353]]></item>
+	<item id="Data">
+		<item id="/longsun_collect.class.php"><![CDATA[4b1b8e807e21e5071766d93598ca96b7]]></item>
+		<item id="/active.inc.php"><![CDATA[8ef0bc4e7f8c670a0920e6efdf5f215b]]></item>
+		<item id="/template/index.htm"><![CDATA[ae3589ca6ef44f419ab53d0a4a1abbdc]]></item>
+		<item id="/template/index.htm.LCK"><![CDATA[d9d85cd334530d9fc1b174bd1a97dd18]]></item>
+		<item id="/template/_notes/dwsync.xml"><![CDATA[cb23634819cc395a644b0cce401bf64a]]></item>
+		<item id="/template/advance.htm"><![CDATA[74ce363a8712b2efbed7bd9f1f70b374]]></item>
+		<item id="/template/images/ico.png"><![CDATA[42cc642b63946f9a4f47ae000271bcd0]]></item>
+		<item id="/template/images/index.css"><![CDATA[471cb6ec8478a2e47952846ed9f3ca46]]></item>
+		<item id="/template/images/Thumbs.db"><![CDATA[8fa94911ae417f519f82558aa315b13b]]></item>
+		<item id="/discuz_plugin_longsun_collect_SC_GBK.xml"><![CDATA[947fb53fb5ae77a0547a44beb8f6d955]]></item>
+		<item id="/install.php"><![CDATA[8fb732ac10e6587d6ded37196de5907f]]></item>
+		<item id="/post.inc.php"><![CDATA[e00d4a71961d790f64b89fe3e7d4864d]]></item>
+		<item id="/libraries/javascripts/jquery.min.js"><![CDATA[db2cccefedcc741a45a582e91a5afe8d]]></item>
+		<item id="/libraries/javascripts/index.js"><![CDATA[a6bf62f79e6c8f5f23b9bb0f13d6ad93]]></item>
+		<item id="/libraries/Output.class.php"><![CDATA[c963bca5c2f2e7226b707577fee11e74]]></item>
+		<item id="/libraries/Utility.class.php"><![CDATA[bf35b0c9c9ff1a623df224677abf6851]]></item>
+		<item id="/functions/common.php"><![CDATA[d99b19a99d6ef6a5f953e0b1f32a7915]]></item>
+		<item id="/original.inc.php"><![CDATA[f75aa2798f31b74cc7586e5612ba48f5]]></item>
+		<item id="/discuz_plugin_longsun_collect.xml.LCK"><![CDATA[d9d85cd334530d9fc1b174bd1a97dd18]]></item>
+		<item id="/discuz_plugin_longsun_collect_TC_UTF8.xml"><![CDATA[30c5693d46c459d92a73b25534279f1a]]></item>
+		<item id="/discuz_plugin_longsun_collect_SC_UTF8.xml"><![CDATA[2de45e301f3db6d909e3850b07628d6b]]></item>
+		<item id="/discuz_plugin_longsun_collect_TC_BIG5.xml"><![CDATA[aea666a8a89ee078810383df7598c95f]]></item>
+	</item>
+</root>

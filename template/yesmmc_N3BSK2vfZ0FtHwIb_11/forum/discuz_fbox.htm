@@ -1,0 +1,28 @@
+<!--{loop $clarr[$col] $clkey $clval}-->
+	<!--{loop $catlist $key $cat}-->
+	<!--{if $cat[fid] == $clarr[$col][$clkey]}-->
+		<div class="xbs xbs_2 block move-span boxall{$col}{if $col==3 && $fbox==3}b{/if}" id="category_$cat[fid]">
+			<!--{eval $caturl = !empty($cat['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$cat['domain'].'.'.$_G['setting']['domain']['root']['forum'] : '';}-->
+			<div class="blocktitle title"><span class="titletext">
+			<a href="{if !empty($caturl)}$caturl{else}forum.php?gid=$cat[fid]{/if}" style="{if $cat[extra][namecolor]}color: {$cat[extra][namecolor]};{/if}">$cat[name]</a>
+			</span></div>
+			<div class="dxb_bc conall"><div class="module cl xl xl1">
+				<div style="padding:0;margin:0 0 7px 0;"><img width="100%"{if $cimgh} height="{$cimgh}"{/if} src="{$cimgarr[$cat[fid]]}"></div>
+				<!--{loop $cat[forums] $forumid}-->
+				<!--{eval $forum=$forumlist[$forumid];}-->
+				<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];}-->
+				<div style="padding:0;margin:0 0 2px 0;"><img src="static/image/forumlist.gif" height="12" width="12"> 
+				<a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}{if $forum[extra][namecolor]} style="color: {$forum[extra][namecolor]};"{/if} title="{$tdnum}{$forum[todayposts]}&#xd;{$thnum}{$forum[threads]}&#xd;{$ponum}{$forum[posts]}">$forum[name]</a>
+				<!--{if $fbox==3}--><em class="xw0 xi1" style="float:right;"><span title="{$tdnum}$forum[todayposts]">{$forum[todayposts]}</span><span title="{$ponum}$forum[posts]" style="color:#aaaaaa;"> / {$forum[posts]}</span></em><!--{/if}-->
+				<!--{if $forum[todayposts] >= $ifhot && !$forum['redirect']}--><em class="xw0 xi1" title="{$tdnum}$forum[todayposts]" style="padding:3px 7px 0 0;float:none;"><img src="static/image/icon_hot.gif"></em><!--{elseif $forum[todayposts] >= $ifnew && !$forum['redirect']}--><em class="xw0 xi1" title="{$tdnum}$forum[todayposts]" style="padding:3px 7px 0 0;float:none;"><img src="static/image/icon_new.gif"></em><!--{/if}-->
+				<!--{if $forum['subforums']}-->
+				<span style="cursor:pointer;"><img id="subf_$forum[fid]_img" src="static/image/$forum[collapseimg]" title="{lang spread}" alt="{lang spread}" onclick="toggle_collapse('subf_$forum[fid]');"></span>
+				<div id="subf_$forum[fid]" style="padding:0;margin:0 0 0 10px;{$collapse['subf_'.$forum[fid]]}">$forum[subforums]</div>
+				<!--{/if}-->
+				</div>
+				<!--{/loop}-->
+			</div></div>
+		</div>
+	<!--{/if}-->
+	<!--{/loop}-->
+<!--{/loop}-->

@@ -1,0 +1,149 @@
+{subtemplate category/header}
+
+<style id="diy_style" type="text/css"></style>
+<div id="pt" class="bm cl">
+	<div class="z">
+		<a href="house.php" class="nvhm" title="{$channel[title]}">$channel[title]</a><em>&raquo;</em><a href="$modurl">$channel[title]</a>$navigation
+	</div>
+	<div class="z"><!--{hook/index_status_extra}--></div>
+</div>
+
+<div id="ct" class="wp cl">
+	<div class="mn">
+		<div class="bm cgv cl">
+			<div class="cgu">
+				<div class="avatar">
+					<!--{if $thread[authorid]}-->
+					<a href="house.php?mod=broker&amp;action=my&amp;uid=$thread[authorid]">$thread[avatar]</a>
+					<!--{else}-->
+					$thread[avatar]
+					<!--{/if}-->
+				</div>
+				<div class="uil">
+					<p class="hm"><!--{if $thread[author]}-->$thread[author]<!--{else}-->{lang house_visitor}<!--{/if}--></p>
+					<!--{if $usergroupicon}--><p>$usergroupicon</p><!--{/if}-->
+					<!--{if $thread[authorid]}-->
+					<dl class="cl">
+						<!--{if $verifyinfo}--><dt>{lang house_verify}</dt><dd>$verifyinfo</dd><!--{/if}-->
+						<!--{if $member[threads]}--><dt>{lang house_housenum}</dt><dd>$member[threads] {lang house_suit}</dd><!--{/if}-->
+						<!--{if $member['district']}--><dt>{lang house_service_area}</dt><dd>$member['district']<!--{if $member['street']}-->&nbsp;&nbsp;$member['street']<!--{/if}--></dd><!--{/if}-->
+						<!--{if $usergrouptitle}--><dt><!--{if $groupid == 1}-->{lang house_usergroup}<!--{else}-->{lang house_agent}<!--{/if}--></dt><dd>$usergrouptitle</dd><!--{/if}-->
+						<!--{if $member['tel']}--><dt>{lang house_phone}</dt><dd>$member['tel']</dd><!--{/if}-->
+					</dl>
+					<!--{/if}-->
+				</div>
+				<!--{if $ischanneladmin || $isgroupadmin || $_G['uid'] && $thread['authorid'] == $_G['uid']}-->
+				<hr class="da mtm" />
+				<div class="ptn pbn cl">
+					<a href="$modurl?mod=post&amp;action=edit&amp;tid=$tid">{lang house_edit}</a>
+					<!--{if $ischanneladmin || $isgroupadmin}--><span class="pipe">|</span><a href="javascript:;" onclick="return showDialog('{lang house_del_topic}', 'confirm', '{lang house_attention}', function(){location.href = '$modurl?mod=threadmod&action=delthread&moderate[]=$tid&sortid=$thread[sortid]';});return false;">{lang house_delete}</a>
+					<span class="pipe">|</span><a href="javascript:;" id="admin" class="showmenu" onmouseover="showMenu({'ctrlid':this.id})">{lang info_manage}</a><!--{/if}-->
+				</div>
+				<!--{/if}-->
+				<!--{if $ischanneladmin || $isgroupadmin}-->
+				<p class="ptn">
+					<form method="post" autocomplete="off" name="modactions" id="modactions">
+					<input type="hidden" name="formhash" value="{FORMHASH}" />
+					<input type="hidden" name="optgroup" />
+					</form>
+					<script language="javascript">
+						function modcategorythread(optgroup, operation, tid) {
+							var operation = !operation ? '' : operation;
+							$('modactions').action = '$modurl?mod=threadmod&sortid='+ $sortid +'&moderate[]=' + tid + '&operation=' + operation + '&infloat=yes&nopost=yes';
+							$('modactions').optgroup.value = optgroup;
+							hideWindow('mods');
+							showWindow('mods', 'modactions', 'post', 0);
+							if(BROWSER.ie) {
+								doane(event);
+							}
+						}
+					</script>
+				</p>
+				<!--{/if}-->
+			</div>
+
+			<div class="cgi cl">
+				<h1 class="wx">$thread[subject]</h1>
+				$threadsortshow[typetemplate]
+			</div>
+		</div>
+		<div class="bm bw0">
+			<ul class="qtb cl">
+				<li id="message_class" class="a"><a href="javascript:;" onclick="tabSwitch('message')">{lang house_content}</a></li>
+				<li id="pic_class"><a href="javascript:;" onclick="tabSwitch('pic')">{lang house_pic}</a></li>
+			</ul>
+			<div class="bm_c cgc">
+				<p id="message_p">$thread[message]</p>
+				<p id="pic_p" style="display:none;">
+				<!--{loop $piclist $url}-->
+				<img src="{$_G[setting][attachurl]}$url" />
+				<!--{/loop}-->
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="sd">
+		<div class="drag">
+			<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+		</div>
+		<!--{if $channel['mapkey'] && $mapposition}-->
+			<div class="bm cl">
+				<h2>{lang house_map}</h2>
+				<div id="container" style="width:244px;height:248px;margin:0 auto;"></div>
+			</div>
+		<!--{/if}-->
+		<div class="bm cl xld">
+			<div class="bm_h">
+				<h2>{lang house_nearby}</h2>
+			</div>
+			<div class="bm_c">
+				<!--{if $neighborhoodlist}-->
+				<!--{loop $neighborhoodlist $data}-->
+					$data
+				<!--{/loop}-->
+				<!--{else}-->
+				{lang house_nearby_nothing}
+				<!--{/if}-->
+			</div>
+		</div>
+		<div class="drag">
+			<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+		</div>
+	</div>
+</div>
+<!--{if $ischanneladmin || $isgroupadmin}-->
+	<ul class="p_pop" id="admin_menu" style="display: none">
+		<!--{if $ischanneladmin || $isgroupadmin && $usergroup['allowpush']}--><li><a href="javascript:;" onclick="modcategorythread(1, 'push', $thread[tid])">{lang house_promote}</a></li><!--{/if}-->
+		<!--{if $ischanneladmin || $isgroupadmin && $usergroup['allowrecommend']}--><li><a href="javascript:;" onclick="modcategorythread(1, 'recommend', $thread[tid])">{lang house_stick}</a></li><!--{/if}-->
+		<!--{if $ischanneladmin || $isgroupadmin && $usergroup['allowhighlight']}--><li><a href="javascript:;" onclick="modcategorythread(1, 'highlight', $thread[tid])">{lang house_highlight}</a></li><!--{/if}-->
+		<!--{if $ischanneladmin}--><li><a href="javascript:;" onclick="modcategorythread(1, 'stick', $thread[tid])">{lang totop}</a></li><!--{/if}-->
+	</ul>
+<!--{/if}-->
+<script type="text/javascript">
+
+function tabSwitch(tab) {
+	if(tab == 'message') {
+		$('message_class').className = 'a';
+		$('message_p').style.display = '';
+		$('pic_class').className = '';
+		$('pic_p').style.display = 'none';
+	} else {
+		$('message_class').className = '';
+		$('message_p').style.display = 'none';
+		$('pic_class').className = 'a';
+		$('pic_p').style.display = '';
+	}
+}
+
+</script>
+<!--{if $channel['mapkey'] && $mapposition}-->
+	<script src="http://ditu.google.cn/maps?file=api&amp;v=2&amp;key=$channel['mapkey']&amp;sensor=true"  type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var map = new GMap2($("container"));
+		map.setCenter(new GLatLng($mapposition[0], $mapposition[1]), $mapposition[2]);
+		map.enableScrollWheelZoom();
+		map.addOverlay(new GMarker(new GLatLng($mapposition[0], $mapposition[1])));
+	</script>
+<!--{/if}-->
+
+<!--{template common/footer}-->
