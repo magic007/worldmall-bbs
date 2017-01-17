@@ -1,0 +1,22 @@
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333935489	login	succeed
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333935516	app_edit	appid=2
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333935551	app_edit	appid=2
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333935756	app_edit	appid=2
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333935767	app_edit	appid=2
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333951232	login	succeed
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333951256	app_edit	appid=2
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333951268	app_edit	appid=2
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333951331	app_add	appid=7; appname=test整合
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333951620	app_edit	appid=7
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333951626	app_edit	appid=7
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333951918	app_edit	appid=7
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333952880	app_edit	appid=7
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333952883	app_edit	appid=7
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333953071	login	succeed
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333955772	login	succeed
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1333955819	app_edit	appid=7
+<?PHP exit;?>	UCenterAdministrator	113.96.240.43	1334020075	login	succeed
+<?PHP exit;?>	UCenterAdministrator	219.136.164.53	1334219135	login	succeed
+<?PHP exit;?>	UCenterAdministrator	219.136.164.53	1334219167	app_edit	appid=7
+<?PHP exit;?>	UCenterAdministrator	219.136.164.53	1334219189	app_edit	appid=7
+<?PHP exit;?>	UCenterAdministrator	219.136.164.53	1334219241	app_edit	appid=7
